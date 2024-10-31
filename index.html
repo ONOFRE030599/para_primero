@@ -1,0 +1,2874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exámen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+        }
+        #RespuestasCorrectas{
+            font-size: 25pt;
+            color: white;
+            font-weight: bold;
+        }
+        #PreguntasIncorrectas{
+            font-size: 15pt;
+            color: red;
+            line-height: normal;
+            font-weight: bold;
+        }
+        #OpcionCorrecta{
+            font-size: 15pt;
+            color: green;
+            line-height: normal;
+        }
+        #Tema{
+            font-size: 20pt;
+            color: blue;
+            font-weight: bold;
+        }
+        h2 {
+            text-align: center;
+            color: goldenrod;
+        }
+        .question {
+            background-color: bisque;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .correct {
+            background-color: lightgreen;
+        }
+        .incorrect {
+            background-color: lightcoral;
+        }
+        button {
+            font-weight: bold;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none; /* Elimina el borde predeterminado */
+            border-radius: 8px; /* Bordes redondeados */
+            background-color: #4caf50; /* Color de fondo vibrante */
+            color: black; /* Color del texto */
+            cursor: pointer; /* Cambia el cursor al pasar el ratón */
+            transition: background-color 0.3s, transform 0.2s; /* Efectos de transición */
+        }
+        button:hover {
+            background-color: green; /* Color de fondo al pasar el ratón */
+            transform: scale(1.05); /* Efecto de aumento */
+        }
+        button:disabled {
+            background-color: #808080; /* Color para botones deshabilitados */
+            cursor: not-allowed; /* Cambia el cursor al pasar el ratón sobre un botón deshabilitado */
+        }
+        #submitButton{
+            font-weight: bold;
+            color: black;
+            background-color: orangered; /* Color de fondo vibrante */
+        }
+        #submitButton:hover{
+            background-color: red; /* Color de fondo al pasar el ratón */
+            transform: scale(1.05); /* Efecto de aumento */
+       }
+        .result {
+            text-align: center;
+            font-size: 20px;
+        }
+        #pregunta{
+            font-weight: bold;
+            text-align: justify;
+        }
+        #general{
+            font-size: 20pt;
+            color: chocolate;
+            font-weight: bold;
+        }
+        #resultado{
+            font-size: 15pt;
+            color: darkcyan;
+            line-height: 5mm;
+            font-weight: bold;
+        }
+        #Calificacion{
+            font-size: 15pt;
+            color: red;
+            line-height: 0mm;
+        }
+        #PreguntasCorrectas{
+            font-size: 15pt;
+            color: green;
+            line-height: 0mm;
+        }
+        .creditos{
+            font-size: 15pt;
+            color: green;
+            line-height: 0mm;
+        }
+    </style>
+</head>
+<body>
+<h1>EXÁMEN PARA VER SI LA TRABAS PARA PRIMERO</h1>
+<div id="questions-container"></div>
+<button id="submitButton" onclick="submitAnswers()">ENVIAR RESPUESTAS</button>
+<div class="result" id="result-container"></div>
+<script>
+    const questions = {
+        "Ley de Disciplina del Ejército y Fuerza Aérea Mexicanos": [
+            {
+                question: "Artículo 1. Preservar la disciplina como PRINCIPIO DE ORDEN Y OBEDIENCIA.",
+                options: [
+                "A) El servicio de las armas.",
+                "B) Principios Generales.",
+                "C) Objeto de la Ley de Disciplina.", 
+                "D) Correctivos Disciplinarios."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 1 Bis. Exige que el militar lleve el cumplimiento del deber HASTA EL SACRIFICIO.",
+                options: [
+                "A) El servicio de las armas.",
+                "B) Principios Generales.",
+                "C) Objeto de la Ley de Disciplina.", 
+                "D) Correctivos Disciplinarios."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 2. Para que el pueblo deposite su CONFIANZA en el Ejército y Fuerza Aérea y los considere como la SALVAGUARDA DE SUS DERECHOS.",
+                options: [
+                "A) Los militares deben cumplir las leyes y reglamentos.",
+                "B) El militar debe respetar los Derechos Humanos.",
+                "C) La disciplina.", 
+                "D) El militar debe observar buen comportamiento."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 3. Es la NORMA a que los militares deben ajustar su conducta; tiene como BASES la obediencia, y un alto concepto del honor.",
+                options: [
+                "A) La disciplina.",
+                "B) Valor.",
+                "C) Lealtad.", 
+                "D) El honor."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 3 Bis. Es la BASE FUNDAMENTAL del Ejército y de la Fuerza Aérea.",
+                options: [
+                "A) Lealtad.",
+                "B) El Honor.",
+                "C) La disciplina.", 
+                "D) El valor."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 3 Bis. Existen primordialmente para defender los intereses de a PATRIA y preservar su VIDA INSTITUCIONAL.",
+                options: [
+                "A) Las Fuerzas Armadas.",
+                "B) El Ejército y Fuerza Aérea Mexicanos.",
+                "C) Las leyes y reglamentos.", 
+                "D) Las armas."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 4. Exige RESPETO y CONSIDERACIONES MUTUAS entre el superior y el subalterno.",
+                options: [
+                "A) La tolerancia.",
+                "B) La disciplina.",
+                "C) El honor.", 
+                "D) El deber."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 1° ¿Cuál es el objeto de la presente Ley?",
+                options: [
+                "A) Preservar la disciplina militar como principio de orden y de obediencia.",
+                "B) Regular la conducta de los civiles.",
+                "C) Establecer las funciones de la Fuerza Aérea.", 
+                "D) Definir los derechos de los militares."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 1 Bis ¿Qué exige el servicio de las armas al militar?",
+                options: [
+                "A) Anteponer sus intereses personales.",
+                "B) Llevar el cumplimiento del deber hasta el sacrificio.",
+                "C) Obedecer únicamente en tiempos de guerra.", 
+                "D) Mantener la paz en su comunidad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 2 ¿Qué debe observar el militar para que el pueblo deposite su confianza en el Ejército y Fuerza Aérea?",
+                options: [
+                "A) Un entrenamiento riguroso.",
+                "B) Participación en actividades comunitarias.",
+                "C) Buen comportamiento.", 
+                "D) Realización de ejercicios físicos."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 3 ¿Cuál es la base de la disciplina en el Ejército y Fuerza Aérea?",
+                options: [
+                "A) La estrategia militar.",
+                "B) La tecnología avanzada.",
+                "C) La fuerza física.", 
+                "D) La obediencia y un alto concepto de honor, de la justicia y de la moral."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 3 Bis ¿Qué constituye la base fundamental del Ejército y Fuerza Aérea Mexicanos?",
+                options: [
+                "A) La disciplina.",
+                "B) La tecnología.",
+                "C) La economía.", 
+                "D) La política."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 4 ¿Qué exige la disciplina entre superior y subalterno?",
+                options: [
+                "A) Competencia.",
+                "B) Respeto y consideraciones mutuas.",
+                "C) Desconfianza.", 
+                "D) Rivalidad"
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 5. A fin de obtener la ESTIMACIÓN Y OBEDIENCIA de sus subalternos ¿Cómo debe proceder el militar?",
+                options: [
+                "A) Con disciplina.",
+                "B) De un modo legal, justo y enérgico.",
+                "C) Con respeto mutuo.", 
+                "D) Con lealtad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 5. Su deber es EDUCAR Y DIRIGIR a los individuos que la nación pone bajo su mando.",
+                options: [
+                "A) Los capitanes.",
+                "B) De los mandos.",
+                "C) Del superior.", 
+                "D) Los comandantes."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 6. En actos del servicio, el SUPERIOR podrá servirse de sus ARMAS o de la FUERZA a su mando para obtener OBEDIENCIA a sus órdenes o mantener la DISCIPLINA.",
+                options: [
+                "A) En caso de extrema necesidad.",
+                "B) En caso de guerra.",
+                "C) Privación de garantías.", 
+                "D) Emergencia."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 7. Será responsable del orden en las TROPAS que tuviere a su mando, así como del cumplimiento de las OBLIGACIONES del servicio.",
+                options: [
+                "A) El mando.",
+                "B) El superior.",
+                "C) El comandante.", 
+                "D) El jefe."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 8. Inspiraran en las TROPAS la SATISFACCIÓN de cumplir con las leyes, reglamentos, y ordenes emanadas de la superioridad.",
+                options: [
+                "A) Todos los jefes.",
+                "B) Todos los militares.",
+                "C) Todo comandante.", 
+                "D) Todo militar que mande tropas."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 9. El militar cómo MANIFESTARÁ al superior el MAL ESTADO en que se encuentran sus tropas.",
+                options: [
+                "A) Con disimulo.",
+                "B) De inmediato.",
+                "C) Por los conductos regulares.", 
+                "D) Con discreción."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 10. Para que el militar obtenga la CONFIANZA y ESTIMACIÓN de sus superiores y en caso las RECOMPENSAS, deberá demostrar entre otras...",
+                options: [
+                "A) Lealtad.",
+                "B) Espíritu de cuerpo.",
+                "C) Celo en el cumplimiento del deber.", 
+                "D) Responsabilidad."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 11. El militar se abstendrá de murmurar con motivo de las DISPOSICIONES superiores o de las OBLIGACIONES que le impone...",
+                options: [
+                "A) La disciplina.",
+                "B) El servicio.",
+                "C) El mando.", 
+                "D) La jerarquía."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 12. El militar no deberá ELEVAR quejas infundadas, hacer PÚBLICAS falsas imputaciones o cometer indiscreciones.",
+                options: [
+                "A) Respecto a sus superiores.",
+                "B) Del servicio.",
+                "C) Respecto a actos del servicio.", 
+                "D) De sus inferiores."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 13. El militar aceptará dignamente y con satisfacción las OBLIGACIONES que le imponga su servicio, sin oponer dificultades, ________________ tendrá derecho de REPRESENTAR ante la superioridad.",
+                options: [
+                "A) Cuando constituya un delito.",
+                "B) Cuando menoscabe su jerarquía militar.",
+                "C) Cuando infrinja la disciplina militar.", 
+                "D) Cuando sea una orden contraria."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 14. Queda estrictamente prohibido al militar dar ÓRDENES cuya EJECUCIÓN constituya un DELITO; el militar que las EXPIDA y el subalterno que las CUMPLA, serán RESPONSABLES...",
+                options: [
+                "A) Conforme a la Ley de Responsabilidades Administrativas de los Servidores Públicos.",
+                "B) Conforme a la Ley de Disciplina.",
+                "C) Conforme al Reglamento General de Deberes Militares.", 
+                "D) Conforme al Código de Justicia Militar."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 15. Son los PRESCRITOS por las leyes, reglamentos y disposiciones de OBSERVANCIA GENERAL que DICTE la superioridad.",
+                options: [
+                "A) Servicio en campaña.",
+                "B) Servicios de las armas.",
+                "C) Actos del servicio.", 
+                "D) Servicio Militar."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 16. En ACTOS DEL SERVICIO, el militar no podrá HACERSE REPRESENTAR...",
+                options: [
+                "A) Por apoderado.",
+                "B) Por abogado.",
+                "C) Por sus padres.", 
+                "D) Por notario."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 16. En actos del servicio, el militar no deberá elevar solicitud tendiente a CONTRARIAR O RETARDAR órdenes del servicio, tampoco...",
+                options: [
+                "A) Solicitudes extemporáneas.",
+                "B) Peticiones en grupo.",
+                "C) Solicitudes personales.", 
+                "D) Licencias."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 17. Queda estrictamente prohibido inmiscuirse en asuntos políticos, DIRECTA O INDIRECTAMENTE, salvo aquel que disfrute de licencia que así se lo permita en términos de los dispuesto por las leyes.",
+                options: [
+                "A) Todo militar.",
+                "B) Al militar en servicio activo.",
+                "C) Al militar retirado.", 
+                "D) Al reservista."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 18. El militar está OBLIGADO a saludar a sus superiores y a los de su misma jerarquía, conforme se prescriben los reglamentos, así como a CORRESPONDER el saludo...",
+                options: [
+                "A) De sus subalternos.",
+                "B) De sus superiores.",
+                "C) De sus iguales.", 
+                "D) De sus jefes."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 19. En un ACTO OFICIAL, donde estuviere un militar y se presentare otro de mayor jerarquía, se le cederá el asiento o lugar PREEMINENTE. Esta formalidad no tendrá lugar en...",
+                options: [
+                "A) Actos del servicio.",
+                "B) Actos familiares.",
+                "C) En las ceremonias militares.", 
+                "D) En los Tribunales Militares."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 20. El comandante de las tropas que arribe a una ciudad o lugar en que no hubiere AUTORIDAD MILITAR SUPERIOR...",
+                options: [
+                "A) Se presentará ante las autoridades del lugar.",
+                "B) Ordenará se presenten las autoridades civiles.",
+                "C) Hará una visita de cortesía a las autoridades civiles.", 
+                "D) Reunirá a las policías del lugar."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 20. EL COMANDANTE DE LAS TROPAS que arribe a una ciudad o lugar en que no hubiere autoridad militar superior...",
+                options: [
+                "A) Se presentará ante las autoridades del lugar.",
+                "B) Ordenará se presenten las autoridades civiles.",
+                "C) Hará una visita de cortesía a las autoridades civiles.", 
+                "D) Reunirá a las policías del lugar."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 22. El militar no debe olvidar nunca que la SOLIDARIDAD y AYUDA MUTUA facilitan la VIDA EN COMÚN y el cumplimiento de los DEBERES MILITARES, por eso prestará siempre que le sea posible su ayuda MORAL y MATERIAL a sus subalternos y sus...",
+                options: [
+                "A) Compañeros.",
+                "B) Superiores.",
+                "C) Familiares.", 
+                "D) Inferiores."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 23. Se abstendrá de entrar a centros de VICIO Y PROSTITUCIÓN, salvo que estén realizando actos del servicio.",
+                options: [
+                "A) Todos los militares",
+                "B) Los militares francos.",
+                "C) El militar que porte uniforme.", 
+                "D) El personal de tropa."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 24. Rehusarán todo compromiso que implique DESHONOR o FALTA DE DISCIPLINA, y no darán su palabra de honor si no pueden cumplir lo que ofrecen.",
+                options: [
+                "A) Los militares.",
+                "B) Los jefes.",
+                "C) Los oficiales.", 
+                "D) Los generales."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 24 Bis. Atendiendo a su HONOR y PRINCIPIOS, debe obrar con EQUIDAD y JUSTICIA, ser ejemplo de PUNTUALIDAD y preocuparse por cumplir con lo ordenado, anteponiendo su INICIATIVA e INTELIGENCIA.",
+                options: [
+                "A) El teniente.",
+                "B) Los Jefes.",
+                "C) Los Capitanes.", 
+                "D) El militar."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 24 Bis. Atendiendo a su honor y principios, debe obrar con equidad y justicia, ser ejemplo de puntualidad y preocuparse por cumplir con lo ordenado, anteponiendo su INICIATIVA e INTELIGENCIA.",
+                options: [
+                "A) El capitán.",
+                "B) El jefe.",
+                "C) El militar.", 
+                "D) El teniente."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 5 ¿Cómo debe proceder el militar en el cumplimiento de sus obligaciones?",
+                options: [
+                "A) De manera relajada.",
+                "B) De forma independiente.",
+                "C) De un modo legal, justo y enérgico.", 
+                "D) Con temor a las consecuencias."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 6 ¿Qué puede usar el superior en caso de extrema necesidad en actos del servicio?",
+                options: [
+                "A) Recursos económicos.",
+                "B) Tecnología avanzada.",
+                "C) Estrategias de negociación.", 
+                "D) Armas o la fuerza de su mando."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 5 ¿Cómo debe proceder el militar en el cumplimiento de sus obligaciones?",
+                options: [
+                "A) De un modo legal, justo y enérgico.",
+                "B) De manera relajada.",
+                "C) De forma independiente.", 
+                "D) Con temor a las consecuencias."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 6 ¿Cómo puede usar el superior en caso de extrema necesidad en actos de servicio?",
+                options: [
+                "A) Recursos económicos.",
+                "B) Armas o la fuerza a su mando.",
+                "C) Tecnología avanzada.", 
+                "D) Estrategias de negociación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 7 ¿De qué será responsable el superior?",
+                options: [
+                "A) De los recursos financieros.",
+                "B) De la planificación estratégica.",
+                "C) Del orden en las tropas y el cumplimiento de las obligaciones del servicio.", 
+                "D) De la logística."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 8 ¿Qué inspirará todo militar que mande tropas?",
+                options: [
+                "A) Miedo y respeto.",
+                "B) Deseo de poder.",
+                "C) Confianza en sus habilidades.", 
+                "D) La satisfacción de cumplir con las leyes, reglamentos y órdenes emanadas de la superioridad."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 9 ¿Cómo debe manifestar el militar el mal estado de sus tropas al superior?",
+                options: [
+                "A) Con discreción.",
+                "B) Con exageración.",
+                "C) Con indiferencia.", 
+                "D) Con entusiasmo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 10 ¿Qué debe demostrar el militar para obtener la confianza y estimación de sus superiores?",
+                options: [
+                "A) Solo aptitud.",
+                "B) Aptitud, buena conducta, amor a la carrera, celo en el cumplimiento de su deber y respeto.",
+                "C) Solo buena conducta.", 
+                "D) Solo respeto."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 11 ¿De qué debe abstenerse el militar?",
+                options: [
+                "A) De hacer sugerencias constructivas.",
+                "B) De colaborar con sus compañeros.",
+                "C) De murmurar con motivo de las disposiciones superiores o de las obligaciones que le impone el servicio.", 
+                "D) De entrenar regularmente."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 12 ¿Qué no deberá hacer el militar respecto de los actos del servicio?",
+                options: [
+                "A) Proponer mejoras.",
+                "B) Colaborar en actividades de grupo.",
+                "C) Participar en competencias deportivas.", 
+                "D) Elevar quejas infundadas, hacer públicas falsas imputaciones o cometer indiscreciones."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 13 ¿Qué derecho tiene el militar si una obligación menoscaba su jerarquía?",
+                options: [
+                "A) Representar ante la superioridad.",
+                "B) Protestar públicamente.",
+                "C) Abandonar su puesto.", 
+                "D) Pedir vacaciones."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 14 ¿Qué está estrictamente prohibido al militar?",
+                options: [
+                "A) Dar órdenes cuya ejecución constituya un delito.",
+                "B) Asistir a eventos sociales.",
+                "C) Utilizar tecnología moderna.", 
+                "D) Leer libros durante el servicio."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 15 ¿Qué se entiende por actos del servicio?",
+                options: [
+                "A) Actividades recreativas.",
+                "B) Eventos sociales.",
+                "C) Los prescritos por las leyes, reglamentos y disposiciones de observancia general.", 
+                "D) Entrenamientos físicos."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 16 ¿Qué no podrá hacer el militar en actos del servicio?",
+                options: [
+                "A) Leer libros.",
+                "B) Asistir a eventos deportivos.",
+                "C) Colaborar en proyectos.", 
+                "D) Hacerse representar por apoderado."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 17 ¿Qué tiene prohibido el militar en servicio activo?",
+                options: [
+                "A) Inmiscuirse en asuntos políticos, directa o indirectamente.",
+                "B) Participar en actividades deportivas.",
+                "C) Asistir a eventos sociales.", 
+                "D) Leer libros de ficción."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 18 ¿A quién está obligado a saludar el militar?",
+                options: [
+                "A) Solo a sus superiores.",
+                "B) A sus superiores y a los de su misma jerarquía.",
+                "C) Solo a sus subalternos.", 
+                "D) A sus amigos y familiares."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 19 ¿Qué hará el militar en un acto oficial si se presenta otro de mayor jerarquía?",
+                options: [
+                "A) Lo ignorará.",
+                "B) Lo desafiará.",
+                "C) Le cederá el asiento o lugar preeminente.", 
+                "D) Lo evitará."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 20 ¿Qué debe hacer el comandante de las tropas que arribe a una ciudad sin autoridad militar superior?",
+                options: [
+                "A) Ignorar a las autoridades civiles.",
+                "B) Organizar un evento social.",
+                "C) Preparar un discurso.", 
+                "D) Hacer una visita de cortesía a las autoridades civiles."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 21 ¿Cómo debe comportarse el militar?",
+                options: [
+                "A) Con el más alto grado de cortesía y educación.",
+                "B) Con indiferencia.",
+                "C) Con arrogancia.", 
+                "D) Con temor."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 22 ¿Qué debe prestar el militar a sus subalternos y compañeros?",
+                options: [
+                "A) Su dinero.",
+                "B) Su ayuda moral y material.",
+                "C) Su tiempo libre.", 
+                "D) Sus conocimientos académicos."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 23 ¿De qué debe abstenerse el militar que porte uniforme?",
+                options: [
+                "A) Asistir a eventos deportivos.",
+                "B) De leer libros de ficción.",
+                "C) De entrar a centros de vicio y de prostitución.", 
+                "D) De participar en actividades recreativas."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 24 ¿Qué compromisos deben rehusar los militares?",
+                options: [
+                "A) Aquellos relacionados con actividades deportivas.",
+                "B) Aquellos que impliquen tareas académicas.",
+                "C) Aquellos relacionados con eventos sociales.", 
+                "D) Aquellos que impliquen deshonor o falta de disciplina."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 24 Bis. ¿Cómo debe obrar el militar atendiendo a su honor y principios?",
+                options: [
+                "A) Con equidad y justicia.",
+                "B) Con indiferencia.",
+                "C) Con temor.", 
+                "D) Con arrogancia."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 24 Ter. ¿Qué es un correctivo disciplinario?",
+                options: [
+                "A) Una recompensa por buen comportamiento.",
+                "B) Una medida correctiva por haber infringido las leyes o reglamentos militares.",
+                "C) Un reconocimiento público.", 
+                "D) Una asignación de tareas adicionales."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 24 Ter. Es la MEDIDA CORRECTIVA que se impone a todo militar, por haber infringido las leyes o reglamentos militar, siempre y cuando no constituyan un delito.",
+                options: [
+                "A) Corrección disciplinaria.",
+                "B) Amonestación.",
+                "C) Arresto.", 
+                "D) Correctivo disciplinario."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 24 Quater. Se CLASIFICAN en amonestación, arresto y cambio de unidad o de comisión.",
+                options: [
+                "A) Arrestos.",
+                "B) Correctivos disciplinarios.",
+                "C) Correcciones disciplinarias.", 
+                "D) Faltas."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 24 Quinquies. Es el ACTO por el cual el superior ADVIERTE al subalterno, de palabra o por escrito, la OMISIÓN o DEFECTO en el cumplimiento de sus deberes; INVITÁNDOLO a corregirse.",
+                options: [
+                "A) Amonestación.",
+                "B) Arresto.",
+                "C) Corrección disciplinarias.", 
+                "D) Correctivo disciplinario."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 24 Quinquies. Está prohibida ya que por ser AFRENTOSA y DEGRADANTE, es contraria a la dignidad militar.",
+                options: [
+                "A) La sumisión.",
+                "B) La humillación.",
+                "C) La represión.", 
+                "D) Las ofensas."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 25. Es la RECLUSIÓN que sufre un militar en el interior de las UNIDADES y puede ser impuesta CON O SIN PREJUICIO del servicio.",
+                options: [
+                "A) Correctivo disciplinario.",
+                "B) Arresto.",
+                "C) Corrección disciplinaria.", 
+                "D) Detención."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 25. Estos pueden ser impuestos con o sin PREJUICIO del servicio.",
+                options: [
+                "A) Correctivo disciplinario.",
+                "B) Corrección disciplinaria.",
+                "C) Arresto.", 
+                "D) Amonestación."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 25. El arresto es la RECLUSIÓN que sufre un militar en el interior de las unidades, dependencias o instalaciones militares, ¿en cuál de los casos, solamente podrán desempeñarse aquellos servicios que no requieran salir del alojamiento?",
+                options: [
+                "A) Con Prejuicio del servicio.",
+                "B) Arresto en su unidad.",
+                "C) Sin prejuicio del servicio.", 
+                "D) Servicio económico."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 26. Si el que impone el correctivo no tiene bajo su MANDO DIRECTO A LA TROPA a que pertenece el que comete la falta.",
+                options: [
+                "A) Ordena el arresto y lo califica.",
+                "B) Dará cuenta a la autoridad militar correspondiente para que imponga el arresto.",
+                "C) Dará cuenta a la autoridad militar correspondiente sin que pueda ordenar el correctivo.", 
+                "D) Ordena el arresto y da cuenta a la autoridad militar correspondiente."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 28. Toda orden de arresto deberá darse por ESCRITO. En caso de que se imponga VERBALMENTE, dicha orden deberá ser RATIFICADA por ESCRITO.",
+                options: [
+                "A) dentro de las 12 horas siguientes.",
+                "B) dentro de las 24 horas siguientes.",
+                "C) de inmediato.", 
+                "D) Antes del día siguiente"
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 29. El que IMPIDA el cumplimiento de un arresto, el que NO LO CUMPLA, serán sancionados de acuerdo a lo establecido en el Código de Justicia Militar, además...",
+                options: [
+                "A) El que no lo firme.",
+                "B) El que permita que se quebrante.",
+                "C) El que no lo ratifique de inmediato.", 
+                "D) El que no lo ratifique dentro de las 24 horas siguientes."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 31. Son los militares que pueden imponer correctivos disciplinarios.",
+                options: [
+                "A) Los que ejercen superioridad de jerarquía y de cargo.",
+                "B) Los que ejercen superioridad de mando.",
+                "C) Los que son líderes.", 
+                "D) Los que están agregados."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 31. Es la INHERENTE A LA COMISIÓN que desempeña un militar, por razón de sus FUNCIONES, y de la AUTORIDAD de que está investido.",
+                options: [
+                "A) Superioridad de grado.",
+                "B) Superioridad de mando.",
+                "C) Superioridad de cargo.", 
+                "D) Superioridad jerárquica."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 32. Los Generales, Jefes, Oficiales o Clases, tienen FACULTAD para imponer arrestos a sus SUBALTERNOS...",
+                options: [
+                "A) En jerarquía o cargo.",
+                "B) En jerarquía o mando.",
+                "C) En antigüedad.", 
+                "D) Empleo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 33. El tiempo de arresto que se le impondrá a los Generales será de _______ y a los jefes de _______.",
+                options: [
+                "A) 24 horas y 48 horas, respectivamente.",
+                "B) 12 horas y 48 horas, respectivamente.",
+                "C) 8 horas y 15 días, respectivamente.", 
+                "D) 24 y 72 horas, respectivamente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 33. Los Generales, Jefes, Oficiales y Tropa, que se encuentren EN DISPONIBILIDAD, cumplirán los arrestos que se les impongan en cualquiera de las Unidades, Dependencias o Instalaciones.",
+                options: [
+                "A) Y los que no tengan mando.",
+                "B) Y los que tengan mando.",
+                "C) Y los que tengan destino fijo.", 
+                "D) Y los que no tengan destino fijo."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 33. Los militares en SITUACIÓN DE RETIRO, ¿dónde cumplirán sus arrestos?",
+                options: [
+                "A) En la unidad militar más cercana a su domicilio.",
+                "B) En la instalación militar más cercana a su domicilio.",
+                "C) En la dependencia más cercana a su domicilio.", 
+                "D) En cualquier unidad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 33. El Secretario de la Defensa Nacional tendrá facultad para IMPONER y GRADUAR arrestos a los Generales, Jefes, Oficiales y Tropa, hasta por 15 días.",
+                options: [
+                "A) Y para calificarlos.",
+                "B) Para dejarlos sin efecto.",
+                "C) También para amonestar.", 
+                "D) Y para corregir."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 33 Bis. Los COMANDANTES del ejército y Fuerza Aérea, los COMANDANTES de Mandos Territoriales, de UU. y Organismos Circunstanciales.",
+                options: [
+                "A) Tienen facultad para calificar los arrestos que impongan.",
+                "B) Tienen facultad para dejar sin efecto los arrestos.",
+                "C) Tienen facultad para graduar arrestos.", 
+                "D) Tienen facultad para graduar arrestos, hasta con 8 días."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 33 Ter. Todo militar FACULTADO PARA GRADUAR arrestos tendrá en cuenta para hacerlo, que sea proporcional a la falta cometida, a la jerarquía, al grado y además...",
+                options: [
+                "A) Al grado de quien lo impuso.",
+                "B) Al cargo de quien lo califica.",
+                "C) Al grado del que lo califica.", 
+                "D) Al cargo de quien lo impuso."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 33 Ter. Podrá dejar sin EFECTO los arrestos o SUSTITUIRLOS por AMONESTACIONES.",
+                options: [
+                "A) El militar facultado para graduarlos.",
+                "B) El comandante de partida o destacamento.",
+                "C) El militar facultado para calificarlos.", 
+                "D) El segundo comandante de la unidad."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 33 Quáter. El que haya RECIBIDO orden de arresto, deberá comunicar al SUPERIOR DE QUIÉN DEPENDA, así como AL QUE SE LA IMPUSO, el inicio y el término de su cumplimiento. ¿Los Generales cómo lo harán?",
+                options: [
+                "A) De forma verbal.",
+                "B) Por escrito.",
+                "C) De palabra.", 
+                "D) Personalmente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 33 Quinquies. El militar que esté cumpliendo un arresto y se haga ACREEDOR a otro, ¿en qué MOMENTO empezará a cumplir esté último?",
+                options: [
+                "A) Al término del primer correctivo.",
+                "B) Simultáneamente al primero.",
+                "C) Cuando se le dé por escrito.", 
+                "D) Desde el momento en el que se le comunique."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 24 Ter. ¿Qué es un correctivo disciplinario?",
+                options: [
+                "A) Una medida coercitiva por haber infringido las leyes o reglamentos militares.",
+                "B) Una recompensa por un buen comportamiento.",
+                "C) Un reconocimiento público.", 
+                "D) Una asignación de tareas adicionales."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 24 Quáter. ¿Cómo se clasifican los correctivos disciplinarios?",
+                options: [
+                "A) Recompensa, medalla y reconocimiento.",
+                "B) Amonestación, arresto y cambio de unidad.",
+                "C) Promoción. aumento de sueldo y ascenso.", 
+                "D) Advertencia, suspensión y expulsión."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 24 Quinquies. ¿Qué es una amonestación?",
+                options: [
+                "A) Una recompensa por un buen comportamiento.",
+                "B) Una asignación de tareas adicionales.",
+                "C) El acto por el cual el superior advierte al subalterno la omisión o defecto en el cumplimiento de sus deberes.", 
+                "D) Un reconocimiento público."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 25. ¿Qué es el arresto?",
+                options: [
+                "A) Una asignación de tareas adicionales.",
+                "B) Un reconocimiento público.",
+                "C) Una promoción a un nuevo cargo.", 
+                "D) La reclusión que sufre un militar en el interior de la unidades, dependencias o instalaciones militares."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 26. ¿Qué hará la autoridad militar correspondiente cuando el correctivo sea impuesto por alguien que no tiene mando directo?",
+                options: [
+                "A) Fijará la duración del castigo.",
+                "B) Ignorará el correctivo.",
+                "C) Anunciará el correctivo públicamente.", 
+                "D) Solucionará el problema."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 28. ¿Cómo debe darse toda orden de arresto?",
+                options: [
+                "A) Verbalmente.",
+                "B) Por escrito.",
+                "C) Mediante señales.", 
+                "D) Con gestos."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 29. ¿Qué le sucederá a quien impida el cumplimiento de un arresto?",
+                options: [
+                "A) Recibirá un reconocimiento.",
+                "B) Será ascendido.",
+                "C) Será sancionado de acuerdo al Código de Justicia Militar.", 
+                "D) No enfrentará consecuencias."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 31. ¿Quién puede imponer correctivos disciplinarios?",
+                options: [
+                "A) Solo el comandante en jefe.",
+                "B) Solo el secretario de defensa.",
+                "C) Solo el presidente.", 
+                "D) El militar que ejerce superioridad de jerarquía o cargo."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 32. ¿Quiénes tienen facultad para imponer arrestos?",
+                options: [
+                "A) Generales, jefes, oficiales y clases.",
+                "B) Solo el comandante.",
+                "C) Solo los oficiales.", 
+                "D) Solo los generales."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 33. ¿Cuál es la duración máxima del arresto para los generales?",
+                options: [
+                "A) 48 horas.",
+                "B) 24 horas.",
+                "C) 72 horas.", 
+                "D) 96 horas."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 33 Ter. ¿Qué debe tener en cuenta todo militar facultado para graduar arrestos?",
+                options: [
+                "A) Que sea beneficioso para el infractor.",
+                "B) Que sea favorable para la institución.",
+                "C) Que sea conveniente para el superior.", 
+                "D) Que sea proporcional a la falta cometida."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 42. El militar que tenga alguna QUEJA en relación con las obligaciones que le impone el servicio, podrá acudir ante el superior inmediato para la solución de sus DEMANDAS y, en caso de no ser debidamente ATENDIDO, ¿hasta dónde podrá llegar por RIGUROSA ESCALA?",
+                options: [
+                "A) Comandante de unidad.",
+                "B) Secretario de la Defensa Nacional.",
+                "C) Presidente de la República.", 
+                "D) Comandante de Región."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 43. Todo militar que infrinja la ley de disciplina, así como algún precepto reglamentario, de acuerdo con su JERARQUÍA en el Ejército y Fuerza Aérea Mexicanos, ¿a qué se hará acreedor?",
+                options: [
+                "A) Amonestación.",
+                "B) Arresto.",
+                "C) Correctivo disciplinario.", 
+                "D) Corrección disciplinaria."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 42. ¿A quién puede acudir un militar con quejas en relación con las disposiciones superiores?",
+                options: [
+                "A) Al superior inmediato.",
+                "B) A los medios de comunicación.",
+                "C) A sus compañeros.", 
+                "D) Al público general."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 43. ¿Qué se hará con un militar que infrinja la presente Ley?",
+                options: [
+                "A) Será ascendido.",
+                "B) Será acreedor a un correctivo disciplinario.",
+                "C) Recibirá una medalla.", 
+                "D) No enfrentará consecuencias."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 34. ¿Cómo se CONSTITUYE el consejo de honor en las UNIDADES?",
+                options: [
+                "A) Con un presidente y tres vocales.",
+                "B) Con un presidente y cuatro vocales.",
+                "C) Con un presidente y dos vocales.", 
+                "D) Con tres vocales."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 34. ¿Cómo se establecerá el consejo de honor en las DEPENDENCIAS?",
+                options: [
+                "A) Con un presidente y cuatro vocales.",
+                "B) Con un presidente y tres vocales.",
+                "C) Con un presidente y dos vocales.", 
+                "D) Con tres vocales."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 35. Corresponde CONOCER al consejo de honor.",
+                options: [
+                "A) De la disolución escandalosa.",
+                "B) De la conducta.",
+                "C) De la disciplina.", 
+                "D) De las faltas de moral."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 36. Es una FACULTAD del consejo de honor.",
+                options: [
+                "A) Dictaminar sobre los castigos correccionales que deban imponerse desde Capitán 1/o. hasta el Soldado.",
+                "B) Acordar la notas que haya que ponerse en las hojas de actuación de los oficiales.",
+                "C) Dictaminar sobre los castigos correccionales que deban imponerse desde el Mayor hasta el Soldado.", 
+                "D) Dictaminar sobre las correcciones disciplinarias que deban imponerse desde Capitán 1/o. hasta el Soldado."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 37. ¿Cuáles son los CASTIGOS CORRECCIONALES para los que el consejo de honor tiene facultades?",
+                options: [
+                "A) La baja del Ejército y Fuerza Aérea.",
+                "B) La baja para los oficiales.",
+                "C) Para los oficiales, el cambio de unidad, dependencia, instalación, comisión o e arresto.", 
+                "D) Acordar las notas que hayan de ponerse en el memorial de servicios de los militares de la clase auxiliar."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 39. Los que componen el consejo de honor que externen los asuntos que se traten en el seno del mismo, serán EXCLUIDOS DEL HONROSO CARGO que desempeñan, ¿previa aprobación de quién?",
+                options: [
+                "A) Del Comandante de la Zona Militar.",
+                "B) De la Secretaria de la Defensa Nacional.",
+                "C) De la Procuraduría General de Justicia Militar.", 
+                "D) Del Comandante de la Unidad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 40. El Consejo de Honor, emplazará al militar de cuya conducta va a conocer para hacerle saber la CAUSA por que se le juzga y oír sus DESCARGOS, a fin de que...",
+                options: [
+                "A) Sea sentenciado.",
+                "B) Se determine la falta en que incurrió.",
+                "C) Se le imponga la corrección disciplinaria a que se haga merecedor.", 
+                "D) Se le imparta estricta justicia."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 41. Los miembros de un Consejo de Honor, serán responsables, de las ARBITRARIEDADES o ABUSOS que cometieren en el ejercicio de sus funciones, ¿de conformidad con qué ordenamiento?",
+                options: [
+                "A) Código de Justicia Militar.",
+                "B) Código Militar de Procedimientos.",
+                "C) Ley de disciplina.", 
+                "D) Reglamento General de Deberes Militares."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 34. ¿Dónde se establecerá el consejo de honor?",
+                options: [
+                "A) En las instalaciones del Ejército.",
+                "B) En las unidades de la FAM.",
+                "C) En las unidades y dependencias del Ejército y Fuerza Aérea.", 
+                "D) En la Regiones, Zonas y Unidades."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 35., Fracción I. Corresponde conocer al consejo de honor de todo lo relativo a la _______de la unidad, dependencia o instalación.",
+                options: [
+                "A) Dignidad.",
+                "B) Reputación.",
+                "C) Mala Fama.", 
+                "D) Ninguna."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 35., Fracción IV. Corresponde conocer al consejo de honor de la falta de honradez en el manejo de _______ que no constituya un delito.",
+                options: [
+                "A) Caudales.",
+                "B) Dinero.",
+                "C) Recursos.", 
+                "D) Fondos."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 35., Fracción IV. Corresponde conocer al consejo de honor de la falta de honradez en el manejo de caudales que...",
+                options: [
+                "A) Constituyan un delito.",
+                "B) No constituyan un delito.",
+                "C) No constituyan una falta.", 
+                "D) Constituyan una falta."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 34. ¿Cómo se constituye el Consejo de Honor en las Unidades?",
+                options: [
+                "A) Con un presidente y cuatro vocales.",
+                "B) Con un presidente y dos vocales.",
+                "C) Con un presidente y tres vocales.", 
+                "D) Con un presidente y cinco vocales."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 35. ¿De qué se encarga el Consejo de Honor?",
+                options: [
+                "A) De la logística militar.",
+                "B) De todo lo relativo a la reputación de la Unidad, Dependencia o Instalación.",
+                "C) De la estrategia de combate.", 
+                "D) De la planificación de eventos."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 36 ¿Qué puede acordar el Consejo de Honor para las hojas de servicios de los oficiales?",
+                options: [
+                "A) Los reconocimientos que recibirán.",
+                "B) Las sanciones a imponer.",
+                "C) Las notas que haya que ponerse.", 
+                "D) Las promociones a otorgar."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 37. ¿Cuál es uno de los castigos correccionales para las clases y soldados?",
+                options: [
+                "A) Ascenso inmediato.",
+                "B) Medalla de honor.",
+                "C) Aumento de sueldo.", 
+                "D) Cambio de unidad o arresto hasta por 15 días en prisión militar."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 39. ¿Qué está prohibido a los individuos del Consejo de Honor?",
+                options: [
+                "A) Externar los asuntos que se traten en el seno del Consejo.",
+                "B) Participar en eventos sociales.",
+                "C) Asistir a reuniones familiares.", 
+                "D) Leer libros de ficción."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 40. ¿Qué debe hacer el Consejo de Honor antes de juzgar a un militar?",
+                options: [
+                "A) Sancionar sin previo aviso.",
+                "B) Emplazar al militar para hacerle saber la causa por que se le juzga.",
+                "C) Ignorar el procedimiento.", 
+                "D) Ascender al militar."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 41 ¿De qué serán responsables los miembros del Consejo de Honor?",
+                options: [
+                "A) De la logística de las tropas.",
+                "B) De la estrategia militar.",
+                "C) De las arbitrariedades o abusos que cometan en el ejercicio de sus funciones.", 
+                "D) De la planificación de eventos."
+                ],
+                answer: 2
+            }
+        ],
+        "Reglamento General de Deberes Militares": [
+            {
+                question: "Artículo 1. EXIGE que la disciplina sea FIRME pero al mismo tiempo RAZONADA.",
+                options: [
+                "A) El servicio de las armas.",
+                "B) El servicio militar.",
+                "C) La disciplina militar.", 
+                "D) El interés del servicio."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 2. ¿Cuál es el PRINCIPIO VITAL de la disciplina?",
+                options: [
+                "A) El deber de obediencia.",
+                "B) La subordinación.",
+                "C) La disciplina.", 
+                "D) El interés del servicio."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 3. Las órdenes deben ser cumplidas con EXACTITUD e INTELIGENCIA; se abstendrá de emitir CUALQUIER OPINIÓN, salvo el caso de hacer ACLARACIONES.",
+                options: [
+                "A) Verbales.",
+                "B) Respetuosas.",
+                "C) Por escrito.", 
+                "D) Presidente de la República."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 4. Queda PROHIBIDO a los militares, DAR ÓRDENES que sean CONTRARIAS a las leyes y reglamentos, que LASTIMEN la DIGNIDAD o DECORO de sus inferiores, o que constituyan un DELITO.",
+                options: [
+                "A) Cualquiera que sea su jerarquía.",
+                "B) De cualquier empleo.",
+                "C) De cualquier cargo.", 
+                "D) Con mando."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 5. Debe ser RIGUROSAMENTE MANTENIDA entre grado y grado la JERARQUÍA militar; la EXACTA OBSERVANCIA de las REGLAS que la GARANTIZAN, mantendrá a cada uno dentro del LÍMITE JUSTO de sus derechos y deberes.",
+                options: [
+                "A) La disciplina.",
+                "B) La subordinación.",
+                "C) La obediencia.", 
+                "D) La lealtad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 6. Entre individuos de igual GRADO, también puede existir, siempre que alguno de ellos esté investido de un \"MANDO ESPECIAL\".",
+                options: [
+                "A) La insubordinación.",
+                "B) La superioridad.",
+                "C) La subordinación.", 
+                "D) La obediencia."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 7. Exige de parte de TODO MILITAR, un conocimiento perfecto de sus DEBERES Y DERECHOS; manteniéndolo constantemente dentro del ESPÍRITU de las prescripciones reglamentarias.",
+                options: [
+                "A) La exacta observancia de los deberes.",
+                "B) La superioridad jerárquica.",
+                "C) El ejercicio normal de mando.", 
+                "D) La disciplina militar."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 8. Deberá CONOCER a sus SUBORDINADOS: su mentalidad, su procedencia, sus aptitudes, su salud, sus cualidades y defectos.",
+                options: [
+                "A) Todo militar con cargo.",
+                "B) Todo militar.",
+                "C) Todo comandante.", 
+                "D) Todo militar con mando."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 9. Los militares tienen obligación de desempeñar las COMISIONES DEL SERVICIO que se les nombre de acuerdo con las FUNCIONES que desempeñen en el Ejército y además...",
+                options: [
+                "A) Y el mando que tengan.",
+                "B) Y de acuerdo a sus cargos.",
+                "C) Y de acuerdo a sus empleos.", 
+                "D) Y su especialidad."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 10. ara que no ignoren sus responsabilidades en que incurren si llegan a cometer alguna OMISIÓN, FALTA O DELITO, deberán conocer con minuciosidad las leyes y reglamentos.",
+                options: [
+                "A) Que se relaciones con su comisión.",
+                "B) Que se relacionen con su grado.",
+                "C) Que se relacionen con su jerarquía en el Ejército.", 
+                "D) Que se relacionen con su situación en el Ejército."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 11. Se prohíbe a los militares, bajo SEVERO CASTIGO, toda conversación que manifieste tibieza en el servicio o desagrado por la fatiga que exige.",
+                options: [
+                "A) Su servicio.",
+                "B) Su jerarquía.",
+                "C) Su obligación.", 
+                "D) Su desempeño."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 13. Todo militar hará por los CONDUCTOS REGULARES, las solicitudes que eleve y solo podrá salvarlos, cuando se trate de ASUNTOS AJENOS AL SERVICIO o QUEJAS contra algún SUPERIOR.",
+                options: [
+                "A) Comenzando por su inmediato superior.",
+                "B) Comenzando por su Comandante de Pelotón.",
+                "C) Comenzando por su Comandante de Sección.", 
+                "D) Iniciando por su Comandante de Unidad y aun pudiendo llegar hasta el Presidente de la República."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 14. LOS SUPERIORES tienen obligación de cumplir exactamente y hacer cumplir a sus inferiores, las órdenes que haya recibido, NO pudiendo DISCULPARSE en modo alguno con la omisión o descuido de estos, en la inteligencia de que recaerá en ellos la responsabilidad.",
+                options: [
+                "A) Por el descuido.",
+                "B) Por el error.",
+                "C) Por el disimulo.", 
+                "D) Por la indisciplina."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 15. TODO MILITAR que dé una orden, tiene el deber de EXIGIR QUE SE CUMPLA, y los oficiales y las clases INFERIORES el de VIGILAR SU EJECUCIÓN; tolerar que una orden no sea ejecutada...",
+                options: [
+                "A) Es señal de apatía.",
+                "B) Es muestra de indisciplina.",
+                "C) Es falta de carácter.", 
+                "D) Es una falta de firmeza."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 16. TODO MILITAR que se EXPRESE MAL de sus superiores en CUALQUIER FORMA, será...",
+                options: [
+                "A) Arrestado.",
+                "B) Severamente castigado.",
+                "C) Se dará vista al Ministerio Público Militar.", 
+                "D) Castigado con arreglo a lo prescrito por el Código de Justicia Militar."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 17. Cuando EL MILITAR eleve QUEJAS INFUNDADAS, haga públicas FALSAS IMPUTACIONES contra sus superiores o cometa INDISCRESIONES en asuntos del servicio.",
+                options: [
+                "A) Será castigado con arreglo a lo prescrito por el Código de Justicia Militar.",
+                "B) Será severamente castigado.",
+                "C) Arrestado.", 
+                "D) Amonestado."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 18. Usarán su vestuario en la forma que previene el Reglamento de Uniformes y Divisas, SIN MEZCLAR las prendas de los distintos uniformes ENTRE SÍ ni con las DE PAISANO, debiendo...",
+                options: [
+                "A) Conservarlas siempre limpias y sin roturas.",
+                "B) Mantenerlas planchadas.",
+                "C) Tenerlas en buen estado.", 
+                "D) Portarlas con gallardía."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 19. Tienen obligación estricta de PRESENTARSE siempre perfectamente aseados, tanto en su persona como en su vestuario, armas y equipo.",
+                options: [
+                "A) Para demostrar con su porte firmeza en el carácter.",
+                "B) Para demostrar gallardía y carácter.",
+                "C) Para demostrar con su porte aire marcial y buenas maneras.", 
+                "D) Para demostrar espíritu de cuerpo."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 20. No podrán tomar parte de ESPECTÁCULOS PÚBLICOS, salvo los DEPORTIVOS Y CULTURALES y con autorización de...",
+                options: [
+                "A) Del comandante de unidad.",
+                "B) La Secretaría de la Defensa Nacional.",
+                "C) De su inmediato superior.", 
+                "D) Del jefe de quien dependan."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 21. NO ENTRARÁN en cantinas, garitos, ni otros sitios de prostitución; NO SE EXHIBIRÁN públicamente en unión de prostitutas.",
+                options: [
+                "A) Ni aun vistiendo de paisanos.",
+                "B) Ni fuera de actos de servicio.",
+                "C) Ni aun encontrándose francos.", 
+                "D) Ni de civil."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 22. TODOS los miembros del Ejército cualesquiera que sea su jerarquía o situación, tendrán obligación de ESTUDIAR CONSTANTEMENTE para estar en condiciones de desempeñar con TODA EFICACIA...",
+                options: [
+                "A) Sus funciones.",
+                "B) La misión que les corresponda.",
+                "C) El servicio que se les nombre.", 
+                "D) Su cargo."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 22. TODOS los miembros del Ejército cualesquiera que sea su JERARQUÍA o SITUACIÓN, para estar en condiciones de poder desempeñar con toda eficacia, la misión que les corresponda, tendrán obligación de...",
+                options: [
+                "A) Conocer las leyes y reglamentos.",
+                "B) Prepararse.",
+                "C) Estudiar constantemente.", 
+                "D) Profesionalizarse."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 23. Fuera de los casos de MANIOBRAS, jamás se sentarán en el suelo.",
+                options: [
+                "A) O maniobras.",
+                "B) O ejercicios en el campo.",
+                "C) O adiestramiento.", 
+                "D) O instrucción de orden disperso."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 24. No dejar de dar curso por NINGÚN MOTIVO NI PRETEXTO, a las solicitudes que por los conductos debidos lleguen hasta ellos, para no perjudicar en lo más mínimo los intereses de los que les están subordinados.",
+                options: [
+                "A) Son las obligaciones de todo comandante.",
+                "B) Es una de las atenciones a que deben dar preferencia bajo su más estricta responsabilidad.",
+                "C) Es una de las atribuciones que tienen los capitanes.", 
+                "D) Es un deber de los Comandantes de unidad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 25. Hasta cuándo podrá REPETIRSE toda INSTANCIA que hubiere sido DENEGADA por la superioridad.",
+                options: [
+                "A) Después de veinticuatro horas.",
+                "B) Después de un mes.",
+                "C) Cuando se haga ante el superior inmediato del que le negó la petición.", 
+                "D) Después que haya desaparecido la causa que motivó la denegación."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 26. Por ningún motivo manifestarán en sus conversaciones REPUGNANCIA en obedecer órdenes superiores, no deberán CENSURARLAS ni permitir que sus inferiores lo hagan aun cuando ellas originen...",
+                options: [
+                "A) Se quebrante la disciplina.",
+                "B) Mayor responsabilidad.",
+                "C) Aumento de fatiga.", 
+                "D) Mayor sacrificio."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 27. Tendrán obligación de CERTIFICAR SERVICIOS de los individuos de su empleo y de los de grado inferior, SIN necesidad de AUTORIZACIÓN, cuando les consten personalmente los hechos a que se refieren, y siempre bajo su responsabilidad.",
+                options: [
+                "A) Los jefes y oficiales.",
+                "B) Los jefes de las oficinas administrativas.",
+                "C) Los militares.", 
+                "D) Los comandantes de unidad."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 28. Queda prohibido a todo militar, desempeñar funciones o invadir las de esta, debiendo prestar su CONTINGENTE sólo en los casos especiales en que lo ordene la SECRETARÍA DE GUERRA.",
+                options: [
+                "A) Policía Estatal.",
+                "B) Policía Federal.",
+                "C) Policía Municipal.", 
+                "D) Policía Urbana."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 29. No intervendrán jamás en asuntos de la incumbencia de las AUTORIDADES CIVILES, cuyas funciones no les es permitido entorpecer, antes bien, respetarán sus determinaciones y les prestarán auxilio necesario cuando sean requeridos, siempre que reciban órdenes de la autoridad militar competente.",
+                options: [
+                "A) Los comandantes de unidad.",
+                "B) Los militares de cualquier graduación.",
+                "C) Los comandantes de partida o destacamento.", 
+                "D) La policía Militar"
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 30. Queda estrictamente prohibido desempeñar el servicio de otro, por RETRIBUCIÓN alguna o CONVENIO previo, sin que exista MOTIVO LEGAL PODEROSO que el superior CALIFICARÁ.",
+                options: [
+                "A) Ya que se infringe la disciplina militar.",
+                "B) Pues el servicio militar no debe ser motivo de comercio.",
+                "C) Pues constituye un delito.", 
+                "D) Ya que constituye un delito sancionado por el Código de Justicia Militar."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 31. Todos los militares tienen el derecho de expresar sus IDEAS en los libros y artículos de prensa, siempre que no se trate en ellos de asuntos políticos y religiosos o que afecten a la disciplina, a los derechos de tercera persona y...",
+                options: [
+                "A) La moral.",
+                "B) Las buenas costumbres.",
+                "C) El servicio.", 
+                "D) La escala jerárquica."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 31. Todos los militares podrán profesar la creencia religiosa que más les agrade; pero queda prohibida su asistencia, portando uniforme, a los templos o lugares donde se practiquen ceremonias religiosas de cualquier índole.",
+                options: [
+                "A) De acuerdo con la libertad de credo.",
+                "B) De conformidad con las leyes y reglamentos militares.",
+                "C) De acuerdo con las prescripciones constitucionales.", 
+                "D) Según la libertad de creencia religiosa."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 32. Los militares respetarán el ejercicio del derecho de petición de sus inferiores, siempre que estos lo ejerzan, de forma...",
+                options: [
+                "A) Por los conductos regulares.",
+                "B) Comedida y atenta.",
+                "C) Respetuosa.", 
+                "D) Fundada y motivadamente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 33. Queda prohibido a todo militar hacer descuentos en los haberes, salvo...",
+                options: [
+                "A) Extravío de prendas.",
+                "B) Pensión alimenticia.",
+                "C) Banjercito.", 
+                "D) Hipotecario."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 34. Todo militar debe dar noticia de su domicilio particular al jefe de quien dependa, y en su defecto a la autoridad militar de la plaza que resida.",
+                options: [
+                "A) Los militares de cualquier rango.",
+                "B) Los militares retirados.",
+                "C) Todo militar en servicio.", 
+                "D) Todo militar en activo."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 35. El militar tendrá profundo respeto a la justicia, consideración y diferencia a los inferiores a quienes nunca hará observaciones, ni correcciones en presencia de inferiores, ni...",
+                options: [
+                "A) De civiles.",
+                "B) De superiores.",
+                "C) De individuos de igual grado.", 
+                "D) De personas extrañas."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 38. Cuando en el momento de recibir órdenes para ejecutar una operación, no se encuentre a la cabeza de la fuerza el superior que le deba mandar, ¿quién tomará desde luego las medidas para proceder a cumplirlas?",
+                options: [
+                "A) El que le siga en categoría.",
+                "B) El inmediato superior.",
+                "C) El de más alta graduación.", 
+                "D) El militar de mayor jerarquía."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 39. Cuando algún militar se le marque el ¡ALTO! ¡QUIÉN VIVE! por un centinela, se detendrá y contestará: ¡MÉXICO! el número de corporación o dependencia en que sirva; ¿en cualquier otro caso qué contestará?",
+                options: [
+                "A) Su nombre.",
+                "B) Su grado.",
+                "C) Su especialidad.", 
+                "D) Su matrícula."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 40. El que tenga mando y sea responsable de un puesto militar, cuidará de que se cumplan todas las órdenes y disposiciones; en caso de ser atacado se defenderá hasta el último momento para...",
+                options: [
+                "A) Obtener la victoria.",
+                "B) Para poner en alto el honor del Ejército Mexicano.",
+                "C) Dejar bien puesto el honor de las armas.", 
+                "D) Obtener el reconocimiento de sus superiores."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 1. Completa el siguiente párrafo.- Todo rigor innecesario, todo castigo no determinado por las leyes y reglamentos que sea susceptible de producir un sentimiento contrario al del cumplimiento del deber, toda palabra, todo acto, todo ademan ofensivos, así como las exigencias que sobrepasen las necesidades o conveniencias del servicio y en general todo lo que constituya una _______ por parte del superior hacia sus subalternos, están estrictamente prohibidos y serán severamente castigados.",
+                options: [
+                "A) Falta.",
+                "B) Extralimitación",
+                "C) Exageración.", 
+                "D) Desobediencia."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 2. Completa el siguiente párrafo.- Todo militar debe tener presente que tan noble es mandar como obedecer y que mandara mejor _________________.",
+                options: [
+                "A) Quien mejor mande.",
+                "B) Quien mejor sepa obedecer.",
+                "C) El que mejor obedezca.", 
+                "D) Quien sepa obedecer mejor."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 3. Completa el siguiente párrafo.- Se abstendrá de _______ cualquier opinión, salvo el caso de hacer aclaraciones respetuosas, para no entorpecer la iniciativa del inferior, las órdenes solo expresarán, _______, el objeto por alcanzar, sin entrar en detalles de ejecución.",
+                options: [
+                "A) Decir / gradualmente.",
+                "B) Emitir / generalmente.",
+                "C) Emitir / gradualmente.", 
+                "D) Externar / generalmente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 4. Completa el siguiente párrafo.- En este último caso el superior que las da y el inferior que las ejecuta, serán responsables conforme _________________.",
+                options: [
+                "A) Al Código de Justicia Militar.",
+                "B) Al Código Fiscal vigente.",
+                "C) Al Manual de Justicia Militar.", 
+                "D) Al Código de Procedimientos Penales."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 6. Completa el siguiente párrafo.- Entre individuos de igual grado, puede también existir la _______, siempre que alguno de ellos este investido de un mando especial.",
+                options: [
+                "A) Insubordinación.",
+                "B) Subordinación.",
+                "C) Jerarquización.", 
+                "D) Ninguna es correcta."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 8. Completa el siguiente párrafo.- Todo militar con mando deberá conocer a sus subordinados: su mentalidad, _______, sus aptitudes, su salud, sus cualidades y defectos.",
+                options: [
+                "A) Su casa.",
+                "B) Su procedencia.",
+                "C) Su aptitud.", 
+                "D) Su origen."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 10. Completa el siguiente párrafo.- Para que no ignoren las responsabilidades si llegan a cometer alguna omisión, _______, deberán conocer con minuciosidad las leyes militares y reglamentos que se relacionen con su situación en el Ejército.",
+                options: [
+                "A) Delito o falta.",
+                "B) o falta.",
+                "C) o delito", 
+                "D) Falta o delito."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 11. Completa el siguiente párrafo.- Se _______a los militares, bajo severo castigo, toda conversación que manifieste tibieza en el servicio o desagrado por la fatiga que exige su obligación.",
+                options: [
+                "A) Castigará.",
+                "B) Prohíbe.",
+                "C) Restringe.", 
+                "D) Faculta."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 12. Completa el siguiente párrafo.- Aceptarán _______ y con satisfacción las obligaciones que les imponga su servicio en el Ejército, prestando, siempre que le sea posible su ayuda moral y material a sus inferiores y compañeros de que la necesiten.",
+                options: [
+                "A) Con agrado.",
+                "B) Dignamente.",
+                "C) Ostensiblemente.", 
+                "D) Animosamente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 13. Completa el siguiente párrafo.- Todo militar hará _______, comenzando por su inmediato superior, las solicitudes que eleve y solo podrá salvarlos, cuando se trate de asuntos ajenos al servicio o quejas contra algún superior.",
+                options: [
+                "A) Por los conductos regulares.",
+                "B) Como dios le dio a entender.",
+                "C) Por rigurosa escala jerárquica.", 
+                "D) Por conducto del jefe de quien dependa."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 14. Completa el siguiente párrafo.- _______ tienen obligación de cumplir exactamente y hacer cumplir a sus inferiores las órdenes que hayan recibido, no pudiendo disculparse en modo alguno con la omisión o descuido de estos.",
+                options: [
+                "A) Todo militar.",
+                "B) Los soldados.",
+                "C) Los militares.", 
+                "D) Los superiores."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 15. Completa el siguiente párrafo.- Todo militar que de una orden, tiene el deber de exigir que se cumpla y _______ de vigilar su ejecución; tolerar que una orden no sea ejecutada, es una falta de firmeza, y ponerse en el caso de notificarla sin motivo, es prueba de debilidad y de poco carácter, ambas cosas son contraias a __________.",
+                options: [
+                "A) Los oficiales / la disciplina militar.",
+                "B) Las clases / la disciplina.",
+                "C) Los oficiales y las clases inferiores / la disciplina.", 
+                "D) Los oficiales y las clases / la disciplina."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 16. Completa el siguiente párrafo.- _______ que se exprese mal de sus superiores, en cualquier forma, será severamente castigado, si tuviere queja de ellos, la producirá a quien le pudiere remediar y por ningún motivo dará mal ejemplo con sus _______.",
+                options: [
+                "A) El militar / murmuraciones.",
+                "B) El comandante / murmuraciones.",
+                "C) Los militares / desacuerdos.", 
+                "D) Todo militar / murmuraciones."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 17. Completa el siguiente párrafo.- Cuando el militar eleve quejas infundadas, haga públicas falsas imputaciones contra sus superiores o cometa indiscreciones en asuntos del servicio, será castigado con arreglo a lo _______ en el Código de Justicia Militar.",
+                options: [
+                "A) Tipificado.",
+                "B) Prescrito.",
+                "C) Descrito.", 
+                "D) Establecido."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 18. Completa el siguiente párrafo.- Usarán su vestuario en la forma que _______ el reglamento de uniformes y divisas, sin mezclar las prendas de los diferentes uniformes entre si ni con las del paisano, debiendo conservarlas siempre limpias y sin roturas.",
+                options: [
+                "A) Ostenta.",
+                "B) Establece.",
+                "C) Previene.", 
+                "D) Asienta."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 20. Completa el siguiente párrafo.- No podrán tomar parte en espectáculos públicos, salvo _______ y con la autorización del jefe de quien dependan.",
+                options: [
+                "A) Los culturales.",
+                "B) Los deportivos o culturales.",
+                "C) Los deportivos y culturales.", 
+                "D) Los deportivos"
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 41. El militar que ocupa un lugar en el escalafón del Ejército y recibe como retribución un sueldo de la nación, tiene la obligación estricta de poner toda su voluntad, toda su inteligencia y todo su esfuerzo, al servicio de...",
+                options: [
+                "A) De su unidad.",
+                "B) De la Nación.",
+                "C) De su comandante.", 
+                "D) Del país."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 42. El militar podrá pedir su baja del Ejército cuando no esté conforme con la orientación que dé a la Política el País...",
+                options: [
+                "A) El Presidente de la República.",
+                "B) El Supremo Gobierno.",
+                "C) El Alto Mando.", 
+                "D) El Ejecutivo de la Nación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 43. Debe ser inmaculada para todo militar que sepa respetarse y respetar a la Institución a que pertenece.",
+                options: [
+                "A) La palabra de honor.",
+                "B) El Honor de las familias.",
+                "C) Su Unidad.", 
+                "D) La dignidad militar."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 44. Debe merecer el más profundo respeto para los militares, quienes están obligados a respetarlas, tanto como quisieran que se respetara la propia.",
+                options: [
+                "A) La unidad a que pertenecen.",
+                "B) La dignidad militar.",
+                "C) La palabra de honor.", 
+                "D) El honor de las familias."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 45. Todo militar tiene la obligación de prestarlo en ayuda de los miembros del Ejército, cuando se vean comprometidos, cualquiera que sea la situación en que se encuentre, aun cuando no les conozcan personalmente.",
+                options: [
+                "A) Contingente personal.",
+                "B) Ayuda moral.",
+                "C) Ayuda material.", 
+                "D) Apoyo económico."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 46. El militar que tenga conocimiento de que se intenta algo contra los intereses de la Patria o del Ejército, tiene la estricta obligación de dar parte de ello a sus inmediatos superiores. El que oculte a sabiendas informes de esta naturaleza, ¿Cómo será castigado?",
+                options: [
+                "A) Como encubridor del delincuente.",
+                "B) Como cómplice del delito inicial.",
+                "C) Como traidor a la Patria.", 
+                "D) Cómplice de primera clase."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 47. Todo el que infrinja un precepto reglamentario, de acuerdo con su JERARQUÍA en el Ejército y la MAGNITUD de su falta se hará acreedor a...",
+                options: [
+                "A) Correctivo Disciplinario.",
+                "B) Arresto.",
+                "C) Corrección disciplinaria.", 
+                "D) Sanción disciplinaria."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 47. La SUPERIORIDAD tiene, entre otras CARACTERÍSTICAS, la facultad de corregir, y por lo tanto, EL QUE LA EJERCE, jerarquía o de cargo, tendrá derecho de...",
+                options: [
+                "A) Imponer sanciones disciplinarias.",
+                "B) Imponer correctivos disciplinarios.",
+                "C) Arrestar.", 
+                "D) Amonestar."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 48. Se entienden como las SANCIONES que se imponen a los militares por INFRCCIONES que NO constituyen un DELITO.",
+                options: [
+                "A) Sanciones disciplinarias.",
+                "B) Arrestos.",
+                "C) Correcciones disciplinarias.", 
+                "D) Correctivos disciplinarios."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 49. Son la amonestación, arresto y cambio de cuerpo o dependencia.",
+                options: [
+                "A) Los correctivos disciplinarios.",
+                "B) Las correcciones disciplinarias.",
+                "C) Las sanciones disciplinarias.", 
+                "D) Los arrestos."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 49. Queda estrictamente prohibida, que por ser AFRENTOSA y DEGRADANTE es contraria a la disciplina militar.",
+                options: [
+                "A) La humillación.",
+                "B) La represión.",
+                "C) La amonestación.", 
+                "D) La llamada de atención."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 50. Es el ACTO por el cual el superior ADVIERTE al inferior la OMISIÓN o DEFECTO en el cumplimiento de sus deberes, INVITÁNDOLO a CORREGIRSE, a fin de que no incurra en falta y se haga acreedor a un arresto.",
+                options: [
+                "A) Represión.",
+                "B) Sanción disciplinaria.",
+                "C) Amonestación.", 
+                "D) Corrección disciplinaria."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 50. ¿De qué FORMAS puede hacerse la AMONESTACIÓN?",
+                options: [
+                "A) Solo de palabra.",
+                "B) Solo por escrito.",
+                "C) Verbalmente.", 
+                "D) De palabra o por escrito."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 50. Es la RECLUSIÓN que sufre un militar por un término de 24 horas a 15 días en su alojamiento, cuartel o en las guardias de prevención.",
+                options: [
+                "A) Arresto.",
+                "B) Correctivo disciplinario.",
+                "C) Corrección disciplinaria.", 
+                "D) Sanción disciplinaria."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 52. Es uno de los funcionarios que tiene facultad para GRADUAR arrestos.",
+                options: [
+                "A) Generales.",
+                "B) Oficial Mayor de Guerra y Marina.",
+                "C) Jefe de Estado Mayor.", 
+                "D) Inspector y Contralor."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 53. Los arrestos se impondrán: a los GENERALES y JEFES, hasta por 24 y 48 horas, respectivamente, ¿En dónde?",
+                options: [
+                "A) Oficinas o dependencias.",
+                "B) En cualquiera de los recintos militares.",
+                "C) Alojamiento militar.", 
+                "D) Alojamiento Oficial (Interior del cuartel)."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 53. Los arrestos se impondrán a los OFICIALES hasta por 8 días ¿En dónde?",
+                options: [
+                "A) En sus cuarteles.",
+                "B) En su alojamiento militar.",
+                "C) En su alojamiento oficial.", 
+                "D) En su alojamiento oficial (Interior del cuartel)."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 53. En este caso, solo podrán desempeñarse aquellos servicios que NO REQUIERAN SALIR del ALOJAMIENTO.",
+                options: [
+                "A) Sin prejuicio del servicio.",
+                "B) Con prejuicio del servicio.",
+                "C) En los dos casos.", 
+                "D) Amonestación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 53. En este caso, saldrán únicamente en ASUNTOS DEL SERVICIO con AUTORIZACIÓN del Comandante o Jefe de la dependencia.",
+                options: [
+                "A) Sin prejuicio del servicio.",
+                "B) Con prejuicio del servicio.",
+                "C) En los dos casos, sin distinción.", 
+                "D) Amonestación."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 54. Se da la orden de arresto COMUNICÁNDOLA al superior de quien dependa el arrestado o a la autoridad correspondiente, INFORMÁNDOLE de las causas que lo motivaron, para que lo GRADUÉ. ¿En qué casos?",
+                options: [
+                "A) Cuando el que imponga el arresto no sea de la misma unidad.",
+                "B) Cuando el que imponga el arresto no esté facultado para graduarlo.",
+                "C) Cuando el que impone el arresto está facultado para graduarlo.", 
+                "D) Cuando el que imponga el arresto es de la misma unidad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 55. Todo militar facultado para graduar arrestos tendrá muy en cuenta, al hacerlo, que sea PROPORCIONAL a la falta cometida, a los ANTECEDENTES de los infractores y a las CIRCUNSTANCIAS, y además...",
+                options: [
+                "A) A la jerarquía de los infractores.",
+                "B) A la jerarquía del que impone el correctivo.",
+                "C) A la gravedad de la falta.", 
+                "D) Al cargo del que impone el arresto."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 56. Solo se cumplirán mediante AUTORIZACIÓN concedida por los Comandantes de Zona o de Guarnición y siempre que se trate de RESOLUCIONES tomadas por los Consejos de Honor.",
+                options: [
+                "A) Los arrestos en las Prisiones Militares.",
+                "B) Cambio de Cuerpo o Dependencia.",
+                "C) Baja.", 
+                "D) Arresto por 15 días."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 57. Toda orden de arresto deberá darse por ESCRITO; los militares de esta jerarquía podrán darlas VERBALMENTE.",
+                options: [
+                "A) Los generales.",
+                "B) Los jefes.",
+                "C) Los oficiales.", 
+                "D) Las clases."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 61. Las AMONESTACIONES no se harán figurar en los expedientes de los militares, pero sí los ARRESTOS con anotación de las CAUSAS que los haya motivado, su DURACIÓN y...",
+                options: [
+                "A) El cargo del que lo impuso.",
+                "B) El cargo del que lo calificó.",
+                "C) Lugares donde fueron cumplidos.", 
+                "D) El motivo."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 62. Solo estos pueden hacer las SOLICITUDES de CAMBIO de Cuerpo o Dependencia, por ser de su COMPETENCIA.",
+                options: [
+                "A) Estados Mayores.",
+                "B) Superiores.",
+                "C) Consejos de Honor.", 
+                "D) Comandantes de Zona Militar."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 63. Los superiores tratarán de hacerse QUERER de sus subalternos, y nunca ESTABLECERÁN la DISCIPLINA a base de...",
+                options: [
+                "A) Fatiga.",
+                "B) Rencor.",
+                "C) Odio.", 
+                "D) Temor."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 49. Los correctivos disciplinarios son:",
+                options: [
+                "A) I.- Amonestación; <br> II.- Arresto, y <br>III.- Cambio de cuerpo o dependencia.",
+                "B) Es la medida coercitiva que se impone a todo militar del Ejército y Fuerza Aérea Mexicanos, por haber infringido las leyes o reglamentos militares, siempre y cuando no constituyan un delito.",
+                "C) I.- Amonestación; <br> II.- Arresto, y <br>III.- Cambio de unidad, dependencia, instalación o comisión en observación de su conducta, determinado por el consejo de honor.", 
+                "D) Es el acto por el cual el superior advierte al subalterno, de palabra o por escrito, la omisión o defecto en el cumplimiento de sus deberes; invitándolo a corregirse."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 50. _______ es el acto por el cual el superior advierte al inferior la omisión o defecto en el cumplimiento de sus deberes, invitándolo a corregirse, a fin de que no incurra en falta y se haga acreedor a un arresto.",
+                options: [
+                "A) Llamada de atención.",
+                "B) Correctivo disciplinario.",
+                "C) La amonestación.", 
+                "D) Comunicación de arresto."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 51. Tienen facultad para imponer arrestos a sus inferiores en jerarquía o cargo, en los límites fijados en el artículo 53:",
+                options: [
+                "A) El Secretario, Subsecretario y Oficial Mayor de Guerra y Marina.",
+                "B) Los generales, jefes, oficiales y clases.",
+                "C) El Secretario, Subsecretario y Oficial Mayor de Guerra.", 
+                "D) Los comandantes de Grandes Unidades, de Zona y de Guarnición."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 53. A quien se le podrá imponer arresto hasta por 24 horas.",
+                options: [
+                "A) Jefes.",
+                "B) Tropa.",
+                "C) Oficiales.", 
+                "D) Generales."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 47. Tiene, entre otras características, la facultad de corregir, y por lo tanto, el que la ejerce, jerárquica o de cargo, tendrá derecho a imponer correctivos disciplinarios.",
+                options: [
+                "A) El o la comandante.",
+                "B) El mando.",
+                "C) La superioridad.", 
+                "D) Ninguno."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 51. Tienen facultad para imponer arrestos a sus inferiores en jerarquía o cargo, en lo límites fijados en el artículo 53.",
+                options: [
+                "A) Generales, jefes, oficiales y clases.",
+                "B) Superiores.",
+                "C) Los Comandantes y Directores de las Armas y Servicios.", 
+                "D) Los o las Comandantes."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 58. El que hubiere ______ orden de arresto, deberá comunicar al superior de quien dependa así como al que se la dio, haberse presentado a cumplirla, e igual formalidad observará al terminarlo. Los generales, jefes y oficiales lo harán por escrito y la tropa de palabra.",
+                options: [
+                "A) Recibido.",
+                "B) Comunicado.",
+                "C) Firmado.", 
+                "D) Dado."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 58. El que hubiere recibido orden de arresto, deberá comunicar al superior de quien dependa así como al que se la dio, haberse presentado a cumplirla, e igual formalidad observará al terminarlo. Los generales, jefes y oficiales lo harán...",
+                options: [
+                "A) De palabra.",
+                "B) Por escrito.",
+                "C) Oficialmente.", 
+                "D) En la primera lista del día."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 58. El que hubiere recibido orden de arresto, deberá comunicar al superior de quien dependa así como al que se la dio, haberse presentado a cumplirla, e igual formalidad observará al terminarlo. ¿La tropa cómo lo hará?",
+                options: [
+                "A) Verbalmente.",
+                "B) Por escrito.",
+                "C) De palabra.", 
+                "D) Directamente."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 59. El que IMPIDA el cumplimiento de un arresto, el que permita que se QUEBRANTE, así como el que NO LO CUMPLA, deberá ser CONSIGNADO de acuerdo con...",
+                options: [
+                "A) El Código de Justicia Militar.",
+                "B) El Código Militar de Procedimientos Penales.",
+                "C) El Código Nacional de Procedimientos Penales.", 
+                "D) La Ley de Disciplina para el Ejército y Fuerza Aérea Mexicanos."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 59. El que impida el cumplimiento de un arresto, el que permita que se quebrante, así como el que no lo cumpla, deberá ser _______ de acuerdo con el Código de Justicia Militar.",
+                options: [
+                "A) Arrestado.",
+                "B) Enjuiciado.",
+                "C) Procesado.", 
+                "D) Consignado."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 60. ¿Se puede imponer algún correctivo disciplinario a un militar durante el estado de ebriedad?",
+                options: [
+                "A) No.",
+                "B) Si.",
+                "C) Dependiendo de la falta cometida.", 
+                "D) A menos que sea urgente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 60. No se impondrá ningún correctivo disciplinario a un militar durante el estado de ebriedad. El Superior se limitará a evitar que cometa algún desorden o continúe escandalizando, haciéndole detener, de ser posible por individuos de su misma jerarquía, o por _______, para después significarle la gravedad de la falta e imponerle el castigo a que se haya hecho acreedor o consignarlo, en su caso",
+                options: [
+                "A) La policía.",
+                "B) Su Comandante.",
+                "C) Individuos de superior jerarquía.", 
+                "D) Militares de inferior jerarquía."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 64. Un ciudadano ingresará al Ejército, debidamente enterado del compromiso que contrae con la Nación y de las obligaciones y derechos que con este hecho adquiere; previa solicitud...",
+                options: [
+                "A) Verbal o escrita.",
+                "B) Únicamente verbal.",
+                "C) Únicamente escrita.", 
+                "D) Manuscrita."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 65. Desde que justifique su alta en la Oficina de Hacienda, tendrá derecho a percibir vestuario y equipo, así como el haber integro que le asigne el Presupuesto de Egresos vigente, salvo el caso de...",
+                options: [
+                "A) Pensión alimenticia.",
+                "B) Extravío de prendas.",
+                "C) Pago a la cafetería de la unidad.", 
+                "D) Prestamos del pagador."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 66. Reconocerá como superiores a todos los generales, jefes, oficiales, sargentos y cabos del Ejército y a sus equivalentes en la Armada, a quienes tendrá obligación de respetar y obedecer en cuanto se refiere a la disciplina y cumplirá con exactitud las órdenes de aquellos de quien dependa directamente, relativas al servicio.",
+                options: [
+                "A) El aspirante.",
+                "B) El recluta.",
+                "C) El soldado.", 
+                "D) El que hubiere causado alta."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 67. Tendrá obligación de dar con su conducta ejemplo al soldado, amor al servicio y seriedad con que deban tratarse todos los asuntos militares.",
+                options: [
+                "A) Del oficial.",
+                "B) Del sargento.",
+                "C) Del cabo.", 
+                "D) Del subteniente."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 67. Es el primer escalón de la jerarquía, y de su fiel y leal desempeño dependerá su mejoramiento para lograr los grados que le siguen en la escala jerárquica.",
+                options: [
+                "A) Del sargento primero.",
+                "B) Del subteniente.",
+                "C) Del cabo.", 
+                "D) Del soldado."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 68. Deberá conocer las obligaciones del soldado, cabo, sargento segundo y sargento primero.",
+                options: [
+                "A) Del cabo.",
+                "B) Del soldado.",
+                "C) Del subteniente.", 
+                "D) Del sargento segundo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 69. Tratará a sus inferiores con afabilidad y los hará cumplir sus órdenes, así como las que reciba de sus superiores.",
+                options: [
+                "A) El cabo.",
+                "B) El sargento segundo.",
+                "C) El sargento primero.", 
+                "D) El subteniente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 69. No tuteará a sus inferiores, ni permitirá que ellos lo tuteen en actos del servicio, jamás los llamará por apodos y en su trato será siempre digno, para conservar así la subordinación y mantener su autoridad.",
+                options: [
+                "A) El sargento segundo.",
+                "B) El sargento primero.",
+                "C) El subteniente.", 
+                "D) El cabo."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 70. Cuidará que los soldados a sus órdenes sepan desempeñar sus obligaciones; les enseñará a vestir con propiedad; les enterará de que la subordinación, el valor y prontitud en el servicio son cualidades que debe poseer y que constituyen el verdadero espíritu de la profesión.",
+                options: [
+                "A) El cabo.",
+                "B) El sargento.",
+                "C) El sargento segundo.", 
+                "D) El subteniente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 71. No tolerará entre sus inferiores, murmuraciones contra el servicio o conversaciones poco respetuosas acerca de sus superiores, y si disimulare alguna falta o no diere parte de ella, será castigado severamente.",
+                options: [
+                "A) Del cabo.",
+                "B) Del sargento segundo.",
+                "C) Del sargento primero.", 
+                "D) Del subteniente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 73. No impedirá ni entorpecerá el ejercicio de las funciones de los cabos, ni los maltratará de palabra u otra manera, pero tendrá obligaciones de imponerles los correctivos necesarios cuando cometieren alguna falta.",
+                options: [
+                "A) Del sargento segundo.",
+                "B) Del sargento primero.",
+                "C) Del subteniente.", 
+                "D) Del teniente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 74. Observará con sus subalternos un trato afable y digno, no usará familiaridades que relajen la disciplina; se hará respetar y obedecer y exigirá esmerado aseo en sus inferiores, para que en todos los actos del servicio, su presentación sea correcta.",
+                options: [
+                "A) Del cabo.",
+                "B) Del sargento segundo.",
+                "C) Del sargento primero.", 
+                "D) Del subteniente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 75. Será exacto en el cumplimiento de sus deberes para poder exigir los mismos a sus inferiores, y será también responsable de las deficiencias que hubiere en los hombres a sus órdenes, debiendo ejercer una vigilancia absoluta en todo lo que a ellos concierne.",
+                options: [
+                "A) Del cabo.",
+                "B) Del sargento segundo.",
+                "C) Del sargento primero.", 
+                "D) Del teniente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 76. Es en la clase de tropa el que tiene mayor respetabilidad.",
+                options: [
+                "A) El cabo.",
+                "B) El sargento segundo.",
+                "C) El sargento primero.", 
+                "D) El soldado."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 77. Conocerá las obligaciones de los inferiores, y las de los superiores hasta el Teniente.",
+                options: [
+                "A) El cabo.",
+                "B) El sargento primero.",
+                "C) El sargento segundo.", 
+                "D) El subteniente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 64. Un ciudadano ingresará al Ejército, debidamente enterado del compromiso que contrae con la nación y de las obligaciones y derechos que con este hecho adquiere; ¿cómo hará la solicitud?",
+                options: [
+                "A) En computadora.",
+                "B) Únicamente escrita.",
+                "C) Únicamente verbal.", 
+                "D) Verbal o escrita."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 65. ¿Desde qué momento los soldados tendrán derecho a percibir vestuario y equipo, así como el haber integro que le asigne el presupuesto de egresos vigente?",
+                options: [
+                "A) Desde que justifique su alta en la Oficina de Hacienda.",
+                "B) Desde que firme su solicitud.",
+                "C) Con la fecha en que se reciba su alta.", 
+                "D) Desde que se presente en la unidad."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 65. ¿En el caso de extravío de prendas, el militar quedará sujeto a un descuento, el cual nunca excederá de cuánto?",
+                options: [
+                "A) De la cuarta parte de su haber.",
+                "B) De la cuarta parte del sobrehaber.",
+                "C) Del 40% del haber.", 
+                "D) Del 50% del haber."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 67. Es el primer escalón de la jerarquía, y de su fiel y leal desempeño dependerá su mejoramiento para lograr los grados que le siguen en la escala jerárquica.",
+                options: [
+                "A) Soldado.",
+                "B) Cabo.",
+                "C) Sargento.", 
+                "D) Subteniente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 68. Deberá conocer la Leyes y Reglamentos, en la parte que le corresponda; las obligaciones del Soldado, Cabo, Sargento Segundo y Sargento Primero.",
+                options: [
+                "A) Soldado.",
+                "B) Cabo.",
+                "C) Sargento Segundo.", 
+                "D) Sargento Primero."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 69. Tratará a sus inferiores con afabilidad y los hará cumplir sus órdenes, así como las que reciba de sus superiores. No los tuteará, ni permitirá que ellos lo tuteen en actos del servicio, jamás los llamará por apodos y en su trato será siempre digno, para conservar así la subordinación y mantener su autoridad.",
+                options: [
+                "A) Soldado.",
+                "B) Cabo.",
+                "C) Sargento Segundo.", 
+                "D) Sargento Primero."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 70. Cuidará que los soldados a sus órdenes sepan desempeñar sus obligaciones; le enseñará a vestir con propiedad; les enterará de la subordinación, el valor y prontitud en el servicio, son cualidades que debe poseer y que constituyen el verdadero espíritu de la profesión.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 71. No tolerará entre sus inferiores, murmuraciones contra el servicio o conversaciones poco respetuosas acerca de sus superiores, y disimulare alguna falta o no diere parte de ella, será castigado severamente.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 72. Conocerá la Leyes y los Reglamentos en la parte relativa a su empleo y sus propias obligaciones, así como las de sus inferiores y las de sus superiores hasta el Teniente.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 74. Observará con sus subalternos un trato afable y digno, no usará familiaridades que relajen la disciplina; se hará respetar y obedecer y exigirá esmerado aseo en sus inferiores, para que en todos los actos del servicio, su presentación sea correcta.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 75. Será exacto en el cumplimiento de sus deberes para poder exigir lo mismo a sus inferiores, y será también responsable de las deficiencias que hubiere en los hombres a sus órdenes, debiendo ejercer una vigilancia absoluta en que todo lo que a ellos concierne.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Subteniente.", 
+                "D) Teniente."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 77. Conocerá las obligaciones de los inferiores, y las de los superiores hasta el Teniente; desempeñará las funciones del servicio que se le encomienden, sin entorpecer las de sus subalternos, vigilando que en todas las circunstancias se mantenga el orden y la disciplina. Apoyará a sus inferiores en las determinaciones que tomen, cuando sean justas; no los maltratará en forma alguna, y si cometieren faltas, los arrestará dando aviso a su inmediato superior.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 78. El que disimulare cualquier desorden, oyere conversaciones indebidas o de trascendencia, contra la subordinación o disciplina y no contuviere o remediare violentamente lo que pueda por sí, dando parte a su jefe inmediato, Comandante de la guardia o superior que más pronto hallare, contraerá una grave responsabilidad por falta de cumplimiento a sus deberes.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 79. Tendrá especial cuidado en atender las quejas de sus subalternos, remediando las que estén a su alcance y transmitiendo al superior inmediato, sin modificarlas, las que no sean de su incumbencia.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 80. No deberá limitarse al cumplimiento de su deber, sino que pondrá de su parte todos los esfuerzos que estén a su alcance, dentro de su RADIO DE ACCIÓN, para mantener siempre la buena reputación del Ejército, haciendo que todos sus subalternos observen un comportamiento decoroso y digno en todas circunstancias.",
+                options: [
+                "A) Cabo.",
+                "B) Sargento Segundo.",
+                "C) Sargento Primero.", 
+                "D) Subteniente."
+                ],
+                answer: 2
+            }
+        ],
+        "Código de Justicia Militar": [
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 0
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 1
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 2
+            }
+        ],
+        "Ley Orgánica del Ejército y Fuerza Aérea Mexicanos": [
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 0
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 1
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 2
+            }
+        ],
+        "Manual de Derechos Humanos para el Ejército y Fuerza Aérea Mexicanos": [
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 0
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 1
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 2
+            }
+        ],
+        "Ley Nacional Sobre el Uso de la Fuerza": [
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 0
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 1
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 2
+            }
+        ],
+        "Manual de Aspectos Técnicos del Servicio de Informática": [
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 0
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 1
+            },
+            {
+                question: "¿Prueba?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 2
+            }
+        ],
+        "Compendio de Medidas para el Cuidado y Manejo de la Información de la SDN": [
+            {
+                question: "¿Prueba1?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 0
+            },
+            {
+                question: "¿Prueba2?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 1
+            },
+            {
+                question: "¿Prueba3?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 2
+            }
+        ],
+        "Redes de Computadoras": [
+            {
+                question: "¿Prueba1?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 0
+            },
+            {
+                question: "¿Prueba2?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 1
+            },
+            {
+                question: "¿Prueba3?",
+                options: [
+                "A) 1",
+                "B) 2",
+                "C) 3", 
+                "D) 4"
+                ],
+                answer: 2
+            }
+        ]
+    };
+    // Cargar preguntas en la página
+    function loadQuestions() {
+        const container = document.getElementById("questions-container");
+        for (const [subject, qs] of Object.entries(questions)) {
+            const subjectDiv = document.createElement("div");
+            subjectDiv.innerHTML = `<h2>${subject}</h2>`;
+            const toggleButton = document.createElement("button");
+            toggleButton.innerText = "Mostrar/Ocultar Preguntas";
+            toggleButton.onclick = () => {
+                questionDiv.style.display = questionDiv.style.display === "none" ? "block" : "none";
+            };
+            subjectDiv.appendChild(toggleButton);
+            const questionDiv = document.createElement("div");
+            questionDiv.style.display = "none";
+            qs.forEach((q, index) => {
+                const questionElement = document.createElement("div");
+                questionElement.classList.add("question");
+                questionElement.innerHTML = `
+                    <p id=pregunta>${index + 1}. ${q.question}</p>
+                    ${q.options.map((option, i) => `
+                        <label>
+                            <input type="radio" name="${subject}-${index}" value="${i}">
+                            ${option}
+                        </label>
+                    `).join("<br>")}
+                `;
+                questionDiv.appendChild(questionElement);
+            });
+            subjectDiv.appendChild(questionDiv);
+            container.appendChild(subjectDiv);
+        }
+    }
+    // Enviar respuestas y calcular resultados
+    function submitAnswers() {
+            // Preguntar al usuario si está seguro de que quiere terminar el examen
+            const isConfirmed = confirm("¿Está seguro de que desea terminar el exámen?");
+            if (!isConfirmed) {
+            // Si el usuario cancela, no continuar
+            return; 
+            }
+            // Variable para desabilitar un boton
+            const button = document.getElementById("submitButton");
+            // Deshabilitar el botón y preguntas.
+            button.disabled = true;
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.disabled = true;
+            });
+            // Cambiar el texto del botón
+            button.innerText = "RESPUESTAS ENVIADAS";
+        //declaración de variables
+        let totalScore = 0;
+        let subjectScores = {};
+        let totalQuestions = 0;
+        let incorrectQuestions = {};
+        for (const [subject, qs] of Object.entries(questions)) {
+            subjectScores[subject] = 0;
+            totalQuestions += qs.length;
+            incorrectQuestions[subject] = [];
+            qs.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="${subject}-${index}"]:checked`);
+                if (selectedOption) {
+                    const answer = parseInt(selectedOption.value);
+                    const questionDiv = selectedOption.closest(".question");
+                    if (answer === q.answer) {
+                        subjectScores[subject]++;
+                        questionDiv.classList.add("correct");
+                    } else {
+                        questionDiv.classList.add("incorrect");
+                        incorrectQuestions[subject].push(q);
+                    }
+                }
+            });
+            totalScore += subjectScores[subject];
+        }
+        // Calcular puntaje final
+        const finalScore = (totalScore / totalQuestions) * 10;
+        const resultContainer = document.getElementById("result-container");
+        resultContainer.innerHTML = `<p id=general>Calificación General:<br> ${finalScore.toFixed(2)} / 10 <br>Preguntas correctas:<br>${totalScore} / ${totalQuestions}</p>`;
+        // Mostrar resultados por tema
+        for (const [subject, score] of Object.entries(subjectScores)) {
+            resultContainer.innerHTML += `<p id=resultado>${subject}:</p><p id=Calificacion>Calificación:</p><p id=Calificacion> ${(score / questions[subject].length * 10).toFixed(2)} / 10 </p><p id=PreguntasCorrectas>Preguntas correctas:<p id=PreguntasCorrectas>${score} / ${questions[subject].length}</p><br>`;
+        }
+        // Botón para mostrar respuestas correctas de preguntas incorrectas
+        if (Object.keys(incorrectQuestions).some(subj => incorrectQuestions[subj].length > 0)) {
+            const showCorrectAnswersButton = document.createElement("button");
+            showCorrectAnswersButton.innerText = "Mostrar Respuestas Correctas";
+            showCorrectAnswersButton.onclick = () => {
+                let correctAnswers = "<p id=RespuestasCorrectas>Respuestas Correctas:</p>";
+                for (const [subject, wrongQs] of Object.entries(incorrectQuestions)) {
+                    if (wrongQs.length > 0) {
+                        correctAnswers += `<p id=Tema>${subject}</p>`;
+                        wrongQs.forEach(q => {
+                            correctAnswers += `<p id=PreguntasIncorrectas>${q.question} - Respuesta Correcta:</p><p id=OpcionCorrecta>${q.options[q.answer]}</p>`;
+                        });
+                    }
+                }
+                resultContainer.innerHTML += correctAnswers;
+            };
+            resultContainer.appendChild(showCorrectAnswersButton);
+        }
+    }
+    window.onload = loadQuestions;
+</script>
+<button onclick="javascript:window.location.reload();">Reinicar Exámen</button>
+<p class="creditos">EL ONOFRE SE LA RIFO XD</p>
+</body>
+</html>
