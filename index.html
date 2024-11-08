@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: black;
+            background-color: black; 
             margin: 0;
             padding: 20px;
         }
@@ -70,19 +70,24 @@
             background-color: green; /* Color de fondo al pasar el ratón */
             transform: scale(1.05); /* Efecto de aumento */
         }
-        button:disabled {
+        #submitButton:disabled {
             background-color: #808080; /* Color para botones deshabilitados */
             cursor: not-allowed; /* Cambia el cursor al pasar el ratón sobre un botón deshabilitado */
+        }
+        #submitButton:disabled:hover {
+            background-color: #808080; /* Color para botones deshabilitados */
+            cursor: not-allowed; /* Cambia el cursor al pasar el ratón sobre un botón deshabilitado */
+            transform: scale(1); /* Efecto de aumento */
         }
         #submitButton{
             font-weight: bold;
             color: black;
-            background-color: orangered; /* Color de fondo vibrante */
+            background-color: orange; /* Color de fondo vibrante */
         }
-        #submitButton:hover{
+        #submitButton:hover{          
             background-color: red; /* Color de fondo al pasar el ratón */
             transform: scale(1.05); /* Efecto de aumento */
-       }
+        }
         .result {
             text-align: center;
             font-size: 20px;
@@ -2542,66 +2547,1776 @@
         ],
         "Código de Justicia Militar": [
             {
-                question: "¿Prueba?",
+                question: "Artículo 228. Es un delito en contra de la seguridad y la existencia de Ejército.",
                 options: [
-                "A) 1",
-                "B) 2",
-                "C) 3", 
-                "D) 4"
+                "A) Falsificación.",
+                "B) Sedición.",
+                "C) Rebelión.", 
+                "D) Espionaje."
                 ],
                 answer: 0
             },
             {
-                question: "¿Prueba?",
+                question: "Artículo 228. ¿Qué delito comete el que FRAUDULENTAMENTE y con objeto de obtener algún PROVECHO para sí o para otro, o con el de causar algún PEJUICIO: Ponga una firma o rúbrica falsas, aunque sean imaginarias, o altere una verdadera, en algún DOCUMENTO MILITAR?",
                 options: [
-                "A) 1",
-                "B) 2",
-                "C) 3", 
-                "D) 4"
+                "A) Infracción de deberes comunes a todos los que están obligados a servir en el Ejército.",
+                "B) Falsificación.",
+                "C) Fraude.", 
+                "D) Usurpación de mando."
                 ],
                 answer: 1
             },
             {
-                question: "¿Prueba?",
+                question: "Artículo 228. ¿Qué delito comete el que fraudulentamente y con el objeto de obtener algún provecho para sí o para otro, o con el de causar algún prejuicio: Aproveche indebidamente una firma o rúbrica en blanco, ajenas, extendiendo algún DESPACHO, PATENTE, ORDEN DE PAGO o cualquiera otro documento relativo a la posición o servicios militares, suyos o de otra persona?",
                 options: [
-                "A) 1",
-                "B) 2",
-                "C) 3", 
-                "D) 4"
+                "A) Abuso de confianza.",
+                "B) Infracción de deberes militares correspondientes a cada militar según su comisión o empleo.",
+                "C) Falsificación.", 
+                "D) Fraude."
                 ],
                 answer: 2
+            },
+            {
+                question: "Artículo 228. ¿Qué delito comete el que fraudulentamente y con el objeto de obtener algún provecho para sí o para otro, o con el de causar algún prejuicio: Altere el texto de algún documento militar verdadero DESPUÉS DE CONCLUIDO Y FIRMADO, variando en él nombres, empleos o grados, fechas, cantidades o cualquiera otra circunstancia o punto substancial, ya sea AÑADIENDO, ENMENDANDO o BORRANDO, en todo o en parte, una o más palabras o variando la puntación?",
+                options: [
+                "A) Usurpación.",
+                "B) Desobediencia.",
+                "C) Falsificación.", 
+                "D) Fraude."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 230. ¿Qué delito comete el funcionario o empleado EN EL FUERO DE GUERRA que, A SABIENDAS, consigne o haga consignar, en las averiguaciones o en los procesos, hechos falsos, o que altere el texto de las actuaciones?",
+                options: [
+                "A) Contra la administración de justicia.",
+                "B) Fraude.",
+                "C) Falsificación.", 
+                "D) Abuso de autoridad."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 231. ¿Qué delito comete el que falsifique los SELLOS, TIMBRES o MARCAS MILITARES que se usen en la correspondencia, libros, actas o documentos oficiales destinados a marcar el armamento, equipo, vestuario u otros objetos pertenecientes al Ejército?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) Infracción de deberes comunes a todos los que están obligados a servir en el Ejército.",
+                "C) Fraude.", 
+                "D) Falsificación."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 233. ¿Qué delito comete el que a sabiendas haga uso de PESAS o MEDIDAS FALSAS, para entregar o recibir los objetos que tengan a su cargo?",
+                options: [
+                "A) Falsificación.",
+                "B) Fraude.",
+                "C) Corrupción.", 
+                "D) Robo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 234. ¿Qué delito comete el que falsifique o adultere, o haga falsificar o adulterar los VÍVERES, FORRAJES, LÍQUIDOS, MEDICINAS u OTRAS SUBSTANCIAS confiadas a su guarda o vigilancia, o que conociendo su falsificación o adulteración las distribuya o haga distribuir a la tropa, caballos, ganado de tiro o acémilas?",
+                options: [
+                "A) Adulterio.",
+                "B) Fraude.",
+                "C) Falsificación", 
+                "D) Robo."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 237. ¿Qué delito comete el que intencionalmente ALTERE, CAMBIE, DESTRUYA o MODIFIQUE los diarios de bitácora, navegación o desviación del compás o cronómetros o libros de cargo, estudios científicos o relativos a una navegación, o que te dé un falso rumbo, u observaciones de situación distintas de las verdaderas?",
+                options: [
+                "A) Falsificación.",
+                "B) Fraude.",
+                "C) Delitos especiales de marinos.", 
+                "D) Robo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 238. ¿Qué delito comete el que altere o cambie los PLANOS o MODELOS de alguna construcción naval, o la construcción misma, destinada al servicio de la Armada?",
+                options: [
+                "A) Falsificación.",
+                "B) Fraude.",
+                "C) Delitos especiales de marinos.", 
+                "D) Robo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 239. ¿Qué tipo de delito es el fraude?",
+                options: [
+                "A) Delitos contra la existencia y seguridad del Ejército.",
+                "B) Contra la jerarquía y la autoridad.",
+                "C) En ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra el deber y decoro militares."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 239. ¿Qué tipo de delito es la malversación de haberes?",
+                options: [
+                "A) Contra el deber y decoro militares.",
+                "B) Es un delito cometido en la administración de justicia o con motivo de ella.",
+                "C) Delitos contra la existencia y seguridad del Ejército.", 
+                "D) Delitos contra la jerarquía y la autoridad."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 239. ¿Qué delito comete el que en las listas de Revista o cualquier otro documento militar haga aparecer una cantidad de hombres, animales, haberes, jornales o forrajes mayor de la que justamente deba figurar, o algún individuo que realmente no exista o que existiendo no preste servicio?",
+                options: [
+                "A) Retención de haberes.",
+                "B) Contra el honor militar.",
+                "C) Malversación.", 
+                "D) Fraude."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 239. ¿Qué delito comete el que, en ejercicio de sus funciones o con miras interesadas, favorezca a un contratista o proveedor en la contrata respectiva, presente cuentas o relaciones inexactas sobre gastos del servicio, naturaleza, cantidad o calidad de los trabajos, mano de obra o provisiones destinadas al uso militar; efectúe compras de estas últimas a precio mayor que el de plaza, o celebre otros contratos onerosos?",
+                options: [
+                "A) Fraude.",
+                "B) Malversación.",
+                "C) Retención de haberes.", 
+                "D) Abuso de autoridad."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 239. ¿Qué delito comete el que, no dé cuenta oportunamente a la Secretaría de la Defensa Nacional o de Marina, según corresponda, de los fondos que tuviere en su poder por economías de forrajes o de gasto común?",
+                options: [
+                "A) Malversación.",
+                "B) Fraude.",
+                "C) Retención.", 
+                "D) Cohecho."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 239. ¿Qué delito comete el que, firme o autorice orden, libramiento o cualquier otro documento de pago o de crédito extendido por los que se hallen a sus órdenes y que difiera en cantidad de lo que arroje la liquidación o ajuste correspondiente?",
+                options: [
+                "A) Fraude.",
+                "B) Malversación.",
+                "C) Retención.", 
+                "D) Cómplice."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 241. ¿Qué delito comete el que, malverse dinero, valores o cualesquiera otros efectos pertenecientes al Ejército o al personal que lo compone, que hubiere recibido en virtud de su empleo o de su comisión fija o accidental?",
+                options: [
+                "A) Retención.",
+                "B) Fraude.",
+                "C) Malversación.", 
+                "D) Estupro."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 245. ¿Qué delito comete el que indebidamente retuviere los haberes, raciones o prendas que por razón de sus funciones estuviere obligado a entregar o distribuir?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) Malversación.",
+                "C) Fraude.", 
+                "D) Retención de haberes."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 239. ¿Qué delito comete el que ordene o haga consumos innecesarios de víveres, municiones, pretechos, combustibles u otros efectos destinados al servicio?",
+                options: [
+                "A) Fraude.",
+                "B) Retención.",
+                "C) Malversación.", 
+                "D) En contra de la administración de justicia."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 239. ¿Qué delito comete el que cambie sin autorización las monedas o valores que hubiere recibido, por otros distintos?",
+                options: [
+                "A) Retención.",
+                "B) Fraude.",
+                "C) Malversación.", 
+                "D) Usurpación de funciones."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 239. ¿Qué tipo de delito comete el que alcance un lucro indebido, con prejuicio de los intereses del Ejército o de los individuos pertenecientes a él, valiéndose para ello del engaño o aprovechándose del error de otra persona?",
+                options: [
+                "A) Retención.",
+                "B) Ejercicio indebido del servicio público.",
+                "C) Fraude.", 
+                "D) Malversación."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 246. ¿Qué delito cometen los individuos de tropa que enajenen o empeñen las prendas de vestuario o equipo de uso personal o que enajenen o empeñen caballos, acémilas, armas, municiones u otros objetos militares destinados para el servicio?",
+                options: [
+                "A) Enajenación de lo perteneciente al Ejército.",
+                "B) Falsificación.",
+                "C) Fraude.", 
+                "D) Robo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 246. ¿Qué delito comete el que enajene o dé en prenda los objetos militares o efectos destinados al uso del Ejército que tuviese bajo su inmediata vigilancia y cuya enajenación no haya sido autorizada?",
+                options: [
+                "A) Enajenación de lo perteneciente al Ejército.",
+                "B) Falsificación.",
+                "C) Robo de lo perteneciente al Ejército.", 
+                "D) Fraude."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 246. ¿Qué delito cometen los individuos de tropa que enajenen o empeñen caballos, acémilas, armas, municiones u otros objetos militares destinados para el servicio?",
+                options: [
+                "A) Enajenación de lo perteneciente al Ejército.",
+                "B) Falsificación.",
+                "C) Robo de lo perteneciente al Ejército.", 
+                "D) Usurpación de funciones."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 246. ¿Qué delito comete el que enajene o dé en prenda los objetos militares o efectos destinados al uso del Ejército que tuviese bajo su inmediata vigilancia y cuya enajenación no haya sido autorizada?",
+                options: [
+                "A) Falsificación.",
+                "B) Enajenación de lo perteneciente al Ejército.",
+                "C) Robo.", 
+                "D) Usurpación de funciones."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 246. Los que enajenen o empeñen las prendas de vestuario o equipo de uso personal, cometen el delito de enajenación de lo perteneciente al Ejército; ¿Qué militares pueden cometer ese delito?",
+                options: [
+                "A) Los oficiales.",
+                "B) Los individuos de tropa.",
+                "C) Únicamente las clases.", 
+                "D) Los subtenientes."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 246. Cometen el delito de enajenación de lo perteneciente al Ejército, los que enajenen o empeñen caballos, acémilas, armas, municiones u otros objetos militares destinados para el servicio; ¿Quiénes cometen este delito?",
+                options: [
+                "A) Las clases.",
+                "B) Los jefes.",
+                "C) Los individuos de tropa.", 
+                "D) Los oficiales."
+                ],
+                answer: 2
+            },
+            {
+                question: "Es un delito contra la existencia y seguridad del Ejército:",
+                options: [
+                "A) Espionaje.",
+                "B) Insumisión.",
+                "C) Insubordinación.", 
+                "D) Abuso de autoridad."
+                ],
+                answer: 1
+            },
+            {
+                question: "Es un delito contra la existencia y seguridad del Ejército:",
+                options: [
+                "A) Espionaje.",
+                "B) Deserción.",
+                "C) Abuso de autoridad.", 
+                "D) Traición a la patria."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 255. La deserción de los individuos de tropa que no estuvieren de servicio, se entenderá realizada, a falta de cualquier otro hecho que la demuestre:<br> I. Cuando faltaren sin motivo legítimo a la revista de administración y no se presenten a justificar, dentro de las ____ horas siguientes.",
+                options: [
+                "A) 24 Hs.",
+                "B) 72 Hs.",
+                "C) 36 Hs.", 
+                "D) 12 Hs."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 255. La deserción de los individuos de tropa que no estuvieren en servicio, se entenderá realizada, a falta de cualquier otro hecho que la demuestre: <br> I. Cuando faltaren sin motivo legítimo a la revista de _______ y no se presenten a justificar, dentro de las 24 horas siguientes.",
+                options: [
+                "A) Supervisión.",
+                "B) Administración.",
+                "C) Supervivencia.", 
+                "D) Inspección."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 255. La deserción de los individuos de tropa que no estuvieren en servicio, se entenderá realizada, a falta de cualquier otro hecho que la demuestre: <br> I. Cuando faltaren sin motivo legítimo a la revista de administración y no se presenten a justificar, dentro de las ____ horas siguientes.",
+                options: [
+                "A) 96",
+                "B) 48",
+                "C) 24", 
+                "D) 72"
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 255. La deserción de los individuos de tropa que no estuvieren en servicio, se entenderá realizada, a falta de cualquier otro hecho que la demuestre: <br> II. Cuando faltaren sin impedimento justificado por ___ días consecutivos a las listas de diana y retreta de las fuerzas a que pertenezcan a las dependencias de que formen parte.",
+                options: [
+                "A) 4",
+                "B) 5",
+                "C) 2", 
+                "D) 3"
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 255. La deserción de los individuos de tropa que no estuvieren en servicio, se entenderá realizada, a falta de cualquier otro hecho que la demuestre: <br> II. Cuando faltaren sin impedimento justificado por 3 días consecutivos a las listas de diana y retreta de las fuerzas a que pertenezcan a las _______ de que formen parte.",
+                options: [
+                "A) Dependencias.",
+                "B) Instalaciones.",
+                "C) Unidades.", 
+                "D) Unidades, dependencias e instalaciones."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 255. La deserción de los individuos de tropa que no estuvieren en servicio, se entenderá realizada, a falta de cualquier otro hecho que la demuestre: <br> III. Cuando tratándose de _______ se quedaren en tierra a la salida del buque a que pertenezcan, siempre que tuvieren oportuno conocimiento de ella, o faltaren por 3 días consecutivos a bordo del barco.",
+                options: [
+                "A) Cabos.",
+                "B) Marineros.",
+                "C) Oficiales.", 
+                "D) Tropa."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 255. La deserción de los individuos de tropa que no estuvieren en servicio, se entenderá realizada, a falta de cualquier otro hecho que la demuestre: <br> IV. Cuando se separen sin permiso del superior que tenga FACULTAD para concederlo, _______ del campamento o guarnición en que se hallen, o se separen en tiempo de paz, a más de 20 Km. de distancia del campamento, 40 de la guarnición, o 15 del puerto en donde éste eñ barco a que pertenezcan; y en campaña, a cualquier distancia de la plaza, buque o punto militar.",
+                options: [
+                "A) Dos noches.",
+                "B) Una noche.",
+                "C) Tres noches.", 
+                "D) Un día."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 266. El individuo de clases o marinería que durante las faenas que fueren consecuencia de un naufragio o suceso peligroso para la embarcación se ausentare durante _______ sin permiso del superior será castigado como desertor en campaña aun cuando el hecho tuviere lugar en tiempo de paz.",
+                options: [
+                "A) Dos noches.",
+                "B) Una noche.",
+                "C) Un día.", 
+                "D) Dos días."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los _______: <br> I. Que con pretexto de enfermedad u otro motivo ilegítimo se queden en las poblaciones, sin el correspondiente permiso, cuando marchen las fuerzas a que pertenezcan.",
+                options: [
+                "A) Oficiales.",
+                "B) Soldados.",
+                "C) Sargentos.", 
+                "D) Cabos."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> I. Que con pretexto de enfermedad u otro motivo _______ se queden en las poblaciones, sin el correspondiente permiso, cuando marchen las fuerzas a que pertenezcan.",
+                options: [
+                "A) Legítimo.",
+                "B) Ilegítimo.",
+                "C) Innecesario.", 
+                "D) Necesario."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> II. Que sin orden correspondiente ni motivo justificado, no lleguen al punto de su destino con la debida oportunidad, o se _______después de emprendida la marcha.",
+                options: [
+                "A) Regresen.",
+                "B) Incorporen.",
+                "C) Desincorporen.", 
+                "D) Adelanten."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> III. Que sin justa causa se desvíen del derrotero que se les hubiere señalado como indispensable en su _______.",
+                options: [
+                "A) Oficio de comisión.",
+                "B) Pasaporte.",
+                "C) Orden.", 
+                "D) Salvoconducto."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> IV. Que se separen _______ del campamento o de la guarnición en que se hallen sin permiso del superior en quien resida la facultad de concederlo.",
+                options: [
+                "A) Dos días.",
+                "B) Un día.",
+                "C) Una noche.", 
+                "D) Tres días."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> IV. Que se separen una noche del campamento o de la _______ en que se hallen sin permiso del superior en quien resida la facultad de concederlo.",
+                options: [
+                "A) Instalación.",
+                "B) Dependencia.",
+                "C) Unidad.", 
+                "D) Guarnición."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> IV. Que se separen una noche del _______ o de la guarnición en que se hallen sin permiso del superior en quien resida la facultad de concederlo.",
+                options: [
+                "A) Del campamento.",
+                "B) De la unidad.",
+                "C) De la base.", 
+                "D) De la dependencia."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> V. Que se separen a más de ___ kilómetros de distancia de su campamento o a más de 80 de su guarnición, o más de 30 del puerto donde esté el barco a que pertenezcan, en tiempo de paz, y a cualquiera distancia de la plaza, buque o punto militar, en campaña, sin licencia del superior.",
+                options: [
+                "A) 41",
+                "B) 40",
+                "C) 80", 
+                "D) 60"
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> V. Que se separen a más de 40 kilómetros de distancia de su campamento o a más de ___ de su guarnición, o más de 30 del puerto donde esté el barco a que pertenezcan, en tiempo de paz, y a cualquiera distancia de la plaza, buque o punto militar, en campaña, sin licencia del superior.",
+                options: [
+                "A) 40.",
+                "B) 50.",
+                "C) 80.", 
+                "D) 30."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> V. Que se separen a más de 40 kilómetros de distancia de su campamento o a más de 80 de su guarnición, o más de ___ del puerto donde esté el barco a que pertenezcan, en tiempo de paz, y a cualquiera distancia de la plaza, buque o punto militar, en campaña, sin licencia del superior.",
+                options: [
+                "A) 80.",
+                "B) 60.",
+                "C) 40.", 
+                "D) 30."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> V. Que se separen a más de 40 kilómetros de distancia de su campamento o a más de 80 de su guarnición, o más de 30 del puerto donde esté el barco a que pertenezcan, en tiempo de paz, y a cualquiera distancia de la plaza, buque o punto militar, en campaña, sin _______ del superior.",
+                options: [
+                "A) Licencia.",
+                "B) Autorización.",
+                "C) Pasaporte.", 
+                "D) Salvoconducto."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> V. Que se separen a más de 40 kilómetros de distancia de su _______ o a más de 80 de su guarnición, o más de 30 del puerto donde esté el barco a que pertenezcan, en tiempo de paz, y a cualquiera distancia de la plaza, buque o punto militar, en campaña, sin licencia del superior.",
+                options: [
+                "A) Unidad.",
+                "B) Campamento.",
+                "C) Cuartel.", 
+                "D) Batallón."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> V. Que se separen a más de 40 kilómetros de distancia de su campamento o a más de 80 de su guarnición, o más de 30 del puerto donde esté el barco a que pertenezcan, en tiempo de paz, y ____________ de la plaza, buque o punto militar, en campaña, sin licencia del superior.",
+                options: [
+                "A) A más de 40 Km.",
+                "B) A más de 30 Km.",
+                "C) A cualquier distancia.", 
+                "D) A más de 80 Km."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> VI. Que falten al servicio ___ días consecutivos, sin motivo legítimo, o se separen durante 48 horas del barco al que pertenezcan sin ese motivo ni permiso del superior.",
+                options: [
+                "A) 3.",
+                "B) 2.",
+                "C) 6.", 
+                "D) 4."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> VI. Que falten al servicio 3 días consecutivos, sin motivo legítimo, o se separen durante ___ horas del barco al que pertenezcan sin ese motivo ni permiso del superior.",
+                options: [
+                "A) 3 días.",
+                "B) 24 horas.",
+                "C) 48 horas.", 
+                "D) Una noche."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> VI. Que falten al servicio ___ días consecutivos, sin motivo legítimo, o se separen durante 48 horas del barco al que pertenezcan sin ese motivo ni permiso del superior.",
+                options: [
+                "A) 2.",
+                "B) 3.",
+                "C) 4.", 
+                "D) 5."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> VI. Que falten al servicio 3 días consecutivos, sin motivo legítimo, o se separen durante _______ del barco al que pertenezcan sin ese motivo ni permiso del superior.",
+                options: [
+                "A) 72 horas.",
+                "B) 24 horas.",
+                "C) 48 horas.", 
+                "D) 96 horas."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> VII. Que falten al acto de la revista de administración sin causa legítima y no se presenten a justificar dentro de las ___ horas siguientes.",
+                options: [
+                "A) 12.",
+                "B) 96.",
+                "C) 48.", 
+                "D) 24."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> VIII. Que habiendo recibido cualquiera cantidad para la marcha, no emprendan éstas a su destino, después de ___ días de expedido el pasaporte, o en el término que se les hubiere señalado, sin impedimento legal o sin orden ni permiso de la autoridad que corresponda.",
+                options: [
+                "A) 3.",
+                "B) 1.",
+                "C) 2.", 
+                "D) 4."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> IX. Que disfrutando de licencia _______ dejen de presentarse cuando hubieren sido llamados antes de que fenezca el plazo por el que se les hubiere sido concedida, o sin causa justificada, cuando haya expirado dicho plazo.",
+                options: [
+                "A) Extraordinaria.",
+                "B) Temporal.",
+                "C) Ordinaria.", 
+                "D) Ilimitada."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> X. Que disfrutando de licencia _______ no se hubieren presentado después de dos meses de haber recibido la orden y los recursos necesarios para ello, en caso de guerra extranjera.",
+                options: [
+                "A) Ordinaria.",
+                "B) Temporal.",
+                "C) Ilimitada.", 
+                "D) Extraordinaria."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> X. Que disfrutando de licencia ilimitada no se hubieren presentado después de ___ meses de haber recibido la orden y los recursos necesarios para ello, en caso de guerra extranjera.",
+                options: [
+                "A) 5.",
+                "B) 4.",
+                "C) 3.", 
+                "D) 2."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 269. Serán considerados también como desertores, los oficiales: <br> X. Que disfrutando de licencia ilimitada no se hubieren presentado después de 2 meses de haber recibido la orden y los recursos necesarios para ello, en caso de guerra _______.",
+                options: [
+                "A) Extranjera.",
+                "B) Total.",
+                "C) Internacional.", 
+                "D) Limitada"
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 273. La deserción en actos del servicio o en campaña, se entenderá perpetrada, siempre que para llevarla a cabo se hubiere empleado un medio _______, cuando el autor del delito se ponga fuera de alcance de las armas de los perseguidores, o eluda toda persecución, y en defecto de lo anterior o de cualquiera otro hecho que demuestre la separación ilegal del servicio militar, por el transcurso de 24 horas, sin que el individuo de que se trate se presente a su inmediato superior o a la fuerza que pertenezca.",
+                options: [
+                "A) Pacífico.",
+                "B) Violento.",
+                "C) Escandaloso.", 
+                "D) Haciendo usos de armas."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 273. La deserción en actos del servicio o en campaña, se entenderá perpetrada, siempre que para llevarla a cabo se hubiere empleado un medio violento, cuando el autor del delito se ponga fuera de alcance de las armas de los perseguidores, o eluda toda persecución, y en defecto de lo anterior o de cualquiera otro hecho que demuestre la separación ilegal del servicio militar, por el transcurso de ___ horas, sin que el individuo de que se trate se presente a su inmediato superior o a la fuerza que pertenezca.",
+                options: [
+                "A) 96.",
+                "B) 12.",
+                "C) 24.", 
+                "D) 72"
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 273. La deserción frente al enemigo se entenderá cometida en el acto de separarse de un militar, indebidamente, de _______ o un marino, del buque o fuerza a que pertenezca.",
+                options: [
+                "A) Las filas.",
+                "B) Su unidad.",
+                "C) La formación.", 
+                "D) Su destino."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 275. Lo que por causas legitima se hubiere dispersado del cuerpo de tropas o buque a que pertenezcan, serán castigados como _______, según las circunstancias que hayan intervenido en su separación, si tan luego como les fuera posible, no se presentaren a su mismo cuerpo de tropas o buque o a otras fuerzas o buques de guerra nacionales o a la autoridad militar, marítima o consular más próxima.",
+                options: [
+                "A) Reincidentes.",
+                "B) Desertores.",
+                "C) Traidores a la patria.", 
+                "D) Prófugo."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 275. Comete el delito de _______ el conscripto que por virtud del sorteo le corresponda prestar servicio activo, no se presente a la autoridad respectiva dentro del plazo señalado para ser encuadrado en las unidades del Ejército.",
+                options: [
+                "A) Abandono de servicio.",
+                "B) Deserción.",
+                "C) Insumisión.", 
+                "D) Desobediencia."
+                ],
+                answer: 2
+            },
+            {
+                question: "Es un delito contra la existencia y seguridad del Ejército.",
+                options: [
+                "A) Rebelión.",
+                "B) Sedición.",
+                "C) Espionaje.", 
+                "D) Traición a las fuerzas armadas"
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien utilice la fuerza, embarcación, aeronave, o cualquier otro bien o recurso humano que tenga bajo su cargo o mando a favor de cualquier miembro de la delincuencia organizada o asociación delictuosa?",
+                options: [
+                "A) Motín.",
+                "B) Traición a las Fuerzas Armadas.",
+                "C) Sedición.", 
+                "D) En contra de la existencia y seguridad del Ejército."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien proporcione a cualquier miembro de la delincuencia organizada o asociación delictuosa, protección o facilidades en la plaza o puesto confiado a su cargo; así como adiestramiento, capacitación o conocimientos militares?",
+                options: [
+                "A) Traición a la patria.",
+                "B) Traición a las Fuerzas Armadas.",
+                "C) Traición al Ejército y Fuerza Aérea.", 
+                "D) Contra la Salud."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien induzca al personal que tenga bajo su mando o a las tropas de las que forme parte, para que presten algún servicio a cualquier miembro de la delincuencia organizada o asociación delictuosa, o reclute personal militar para el mismo fin?",
+                options: [
+                "A) Traición a las Fuerzas Armadas.",
+                "B) Contra la Salud.",
+                "C) Delincuencia organizada", 
+                "D) Asociación delictuosa."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien proporcione a cualquier miembro de la delincuencia organizada o asociación delictuosa, información a la que tenga acceso con motivo del ejercicio de su cargo o comisión?",
+                options: [
+                "A) Traición a las Fuerzas Armadas.",
+                "B) Traición al Ejército.",
+                "C) Traición a la Patria.", 
+                "D) Delincuencia organizada."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien incumpla con sus obligaciones, respecto de las tropas a su cargo, para actuar contra cualquier miembro delincuencia organizada o asociación delictuosa?",
+                options: [
+                "A) Contra la Salud.",
+                "B) Delincuencia Organizada.",
+                "C) Traición a la patria.", 
+                "D) Traición a las Fuerzas Armadas."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien obstaculice las acciones de las Fuerzas Armadas o autoridad competente, en contra de cualquier miembro de la delincuencia organizada o asociación delictuosa?",
+                options: [
+                "A) Traición al Ejército y Fuerza Aérea Mexicanos.",
+                "B) Traición a la patria.",
+                "C) Traición a las Fuerzas Armadas.", 
+                "D) Contra la salud."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien no ejecute una orden del servicio o la modifique de propia autoridad, en ambos casos, para favorecer a cualquier miembro de la delincuencia organizada o asociación delictuosa?",
+                options: [
+                "A) Asociación delictuosa.",
+                "B) Delincuencia organizada.",
+                "C) Contra la salud.", 
+                "D) Traición a las Fuerzas Armadas."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien falsifique o altere un documento o instrumento que contenga información relativa a las operaciones de las Fuerzas Armadas o autoridad competente en contra de cualquier miembro de la delincuencia organizada o asociación delictuosa, o a sabiendas de que se trata de documentos o instrumentos falsificados o alterados, haga uso de ellos?",
+                options: [
+                "A) Traición a la patria.",
+                "B) Traición a las Fuerzas Armadas.",
+                "C) Delincuencia Organizada.", 
+                "D) Asociación delictuosa."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien falsifique o altere un documento o instrumento que contenga información relativa a las operaciones de las Fuerzas Armadas o autoridad competente en contra de cualquier miembro de la delincuencia organizada o asociación delictuosa, o a sabiendas de que se trata de documentos o instrumentos falsificados o alterados, haga uso de ellos?",
+                options: [
+                "A) Traición a las Fuerzas Armadas.",
+                "B) Traición a la patria.",
+                "C) Traición al Ejército y Fuerza Aérea.", 
+                "D) Delincuencia Organizada."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien proporcione a sus superiores información diferente a la que conozca acerca de las actividades que esté desarrollando en las Fuerzas Armadas en contra de cualquier miembro de la delincuencia organizada o asociación delictuosa, u omita proporcionar los datos que tenga sobre dichas actividades, así como de los proyectos o movimientos de éstos?",
+                options: [
+                "A) Traición a las Fuerzas Armadas.",
+                "B) Delincuencia Organizada.",
+                "C) Traición a la patria.", 
+                "D) Asociación delictuosa."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien conduzca o guíe las actividades de cualquier miembro de la delincuencia organizada o asociación delictuosa?",
+                options: [
+                "A) Asociación delictuosa.",
+                "B) Delincuencia Organizada.",
+                "C) Traición a las Fuerzas Armadas.", 
+                "D) Traición a la patria."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 275 Ter. ¿Qué delito comete quien ponga en libertad a cualquier miembro de la delincuencia organizada o asociación delictuosa, o proteja o facilite su fuga?",
+                options: [
+                "A) Traición a la patria.",
+                "B) Traición a las Fuerzas Armadas.",
+                "C) En contra de la Seguridad y Existencia del Ejército.", 
+                "D) Delincuencia organizada."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 276. ¿Qué delito comete el que lesionándose o de cualquiera otra manera se inutilice voluntariamente, por si o por medio de otro, para el servicio militar?",
+                options: [
+                "A) Lesiones simples.",
+                "B) Inhabilitación voluntaria para el servicio.",
+                "C) Inutilización voluntaria para el servicio.", 
+                "D) Lesiones."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 276. ¿El delito de inutilización voluntaria para el servicio en que tipo de delitos se encuentra considerado?",
+                options: [
+                "A) Delitos contra la seguridad exterior de la nación.",
+                "B) Delitos contra la jerarquía y la autoridad.",
+                "C) Delitos contra la existencia y seguridad del Ejército.", 
+                "D) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas"
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 277. ¿Qué delito comete el que se valga de recursos o medios fraudulentos que lo imposibiliten para el cumplimiento de alguna obligación militar?",
+                options: [
+                "A) Inutilización voluntaria para el servicio.",
+                "B) Inhabilitación voluntaria para el servicio.",
+                "C) Fraude.", 
+                "D) Lesiones."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 278. ¿En qué tipo de delitos se encuentra considerado el de insultos, amenazas o violencias contra centinelas, guardias, tropa formada, salvaguardias, bandera y Ejército?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos contra la seguridad exterior de la nación.",
+                "C) Delitos contra la seguridad y existencia del Ejército.", 
+                "D) Infracción de Deberes Militares."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 278. ¿Qué delito comete el jefe que ofenda o amenace a un centinela, a un miembro de un guardia, aun vigilante, serviola, guardián o salvaguardia y el que destruya ésta si fuere escrita?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) Desobediencia.",
+                "C) Infracción de Deberes Comunes a todos los que están obligados a servir al Ejército.", 
+                "D) Insultos, amenazas o violencias contra centinelas, guardias, tropa formada, salvaguardias, bandera y Ejército."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 280. ¿Qué delito comete el Teniente de Infantería que injurie, difame o calumnie al Ejército o a instituciones que de él dependan, armas, cuerpos, guardias o tropa formada?",
+                options: [
+                "A) Insultos, amenazas o violencias contra centinelas, guardias, tropa formada, salvaguardias, bandera y Ejército.",
+                "B) Abuso de autoridad.",
+                "C) Desobediencia.", 
+                "D) Infracción de Deberes Militares correspondientes a cada militar según su comisión o empleo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando insulta a un centinela?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos contra el deber y decoro militares.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la existencia y seguridad del Ejército."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando insulta a una guardia?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.",
+                "C) Delitos contra la existencia y seguridad del Ejército.", 
+                "D) Delitos contra el deber y decoro militares."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando insulta a una tropa formada?",
+                options: [
+                "A) Delitos contra el deber y decoro militares.",
+                "B) Delitos contra la existencia y seguridad del Ejército.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la seguridad interior de la nación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando insulta a un salvaguardias?",
+                options: [
+                "A) Delitos contra la existencia y seguridad del Ejército.",
+                "B) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.",
+                "C) Delitos contra la seguridad interior de la nación.", 
+                "D) Delitos contra el deber y decoro militares."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando insulta a la Bandera?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos contra el deber y decoro militares.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la existencia y seguridad del Ejército."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando insulta al Ejército?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.",
+                "C) Delitos contra la existencia y seguridad del Ejército.", 
+                "D) Delitos contra el deber y decoro militares."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando amenaza a un centinela?",
+                options: [
+                "A) Delitos contra el deber y decoro militares.",
+                "B) Delitos contra la existencia y seguridad del Ejército.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la seguridad interior de la nación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando amenaza a una guardia?",
+                options: [
+                "A) Delitos contra la existencia y seguridad del Ejército.",
+                "B) Delitos contra el deber y decoro militares.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la seguridad interior de la nación."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando amenaza a una tropa formada?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos contra el deber y decoro militares.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la existencia y seguridad del Ejército."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando amenaza a un salvaguardias?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.",
+                "C) Delitos contra la existencia y seguridad del Ejército.", 
+                "D) Delitos contra el deber y decoro militares."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando amenaza al Ejército?",
+                options: [
+                "A) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.",
+                "B) Delitos contra la existencia y seguridad del Ejército.",
+                "C) Delitos contra el deber y decoro militares.", 
+                "D) Delitos contra la seguridad interior de la nación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando comete violencia contra un centinela?",
+                options: [
+                "A) Delitos contra la existencia y seguridad del Ejército.",
+                "B) Delitos contra el deber y decoro militares.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la seguridad interior de la nación."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando comete violencia contra una guardia?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos contra el deber y decoro militares.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra la existencia y seguridad del Ejército."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando comete violencia contra una tropa formada?",
+                options: [
+                "A) Delitos contra la seguridad interior de la nación.",
+                "B) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.",
+                "C) Delitos contra la existencia y seguridad del Ejército.", 
+                "D) Delitos contra el deber y decoro militares."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando comete violencia contra un salvaguardias?",
+                options: [
+                "A) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.",
+                "B) Delitos contra la existencia y seguridad del Ejército.",
+                "C) Delitos contra el deber y decoro militares.", 
+                "D) Delitos contra la seguridad interior de la nación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el militar, cuando comete violencia contra la bandera?",
+                options: [
+                "A) Delitos contra la existencia y seguridad del Ejército.",
+                "B) Delitos contra la seguridad interior de la nación.",
+                "C) Delitos cometidos en ejercicio de las funciones militares o con motivo de ellas.", 
+                "D) Delitos contra el deber y decoro militares."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 278. ¿Qué tipo de delito comete el que ofenda o amenace a un centinela, a un miembro de una guardia, aun vigilante, serviola, guardián o salvaguardia y el que destruye ésta si fuere escrita?",
+                options: [
+                "A) Delitos contra la existencia y seguridad del Ejército.",
+                "B) Delitos cometidos en la administración de justicia o con motivo de ella.",
+                "C) Delitos contra el deber y decoro militares.", 
+                "D) Delitos contra la jerarquía y la autoridad."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 281. ¿Qué delito comete el soldado de infantería que injurie o ultraje a un miembro de la policía que esté en ejercicio de sus funciones?",
+                options: [
+                "A) Ultrajes y violencias contra la policía.",
+                "B) Insultos, amenazas o violencias contra centinelas, guardias, tropa formada, salvaguardias, bandera y ejército.",
+                "C) Insubordinación.", 
+                "D) Desobediencia."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 281. ¿Qué delito comete el Teniente de Artillería que desobedezca a un miembro de la policía que esté en ejercicio de sus funciones?",
+                options: [
+                "A) Ultrajes y violencias contra la policía.",
+                "B) Abuso de autoridad.",
+                "C) Desobediencia.", 
+                "D) Insultos, amenazas o violencias contra centinelas, guardias, tropa formada, salvaguardias, bandera y ejército."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 282. El que ocasione _______ una falsa alarma, o que en marcha o en campamento, guarnición, cuartel o dependencia del ejercito cause dolosamente una confusión o desorden en la tropa o en las formaciones de los buques, o aeronaves, en las dotaciones o en la población donde las fuerzas estuvieren.",
+                options: [
+                "A) Dolosamente.",
+                "B) Imprudentemente.",
+                "C) Sin precaución.", 
+                "D) Culposamente."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 282. El que ocasione dolosamente una falsa alarma, o que en marcha o en campamento, guarnición, cuartel o dependencia _______ cause dolosamente una confusión o desorden en la tropa o en las formaciones de los buques, o aeronaves, en las dotaciones o en la población donde las fuerzas estuvieren.",
+                options: [
+                "A) Del Ejército y Fuerza Aérea.",
+                "B) Del Ejército.",
+                "C) De las Fuerzas Armadas.", 
+                "D) De la Marina."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 282. El que ocasione dolosamente una falsa alarma, o que en marcha o en campamento, guarnición, cuartel o dependencia del ejercito cause dolosamente una confusión o desorden en la tropa o en las _______ de los buques, o aeronaves, en las dotaciones o en la población donde las fuerzas estuvieren.",
+                options: [
+                "A) Comandancias.",
+                "B) Estructuras.",
+                "C) Formaciones.", 
+                "D) Inmediaciones."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 283. ¿Qué delito comete el militar que con palabras, ademanes, señas, gestos o de cualquier otra manera, FALTE AL RESPETO o SUJECIÓN DEBIDOS a un superior que porte sus insignias o a quien conozca o deba conocer?",
+                options: [
+                "A) Ejercicio indebido del Servicio Público.",
+                "B) Abuso de autoridad.",
+                "C) Desobediencia.", 
+                "D) Insubordinación."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 283. ¿La insubordinación puede cometerse DENTRO DEL SERVICIO Y FUERA DE ÉL?",
+                options: [
+                "A) Sí.",
+                "B) Solo se puede cometer dentro de Actos del Servicio.",
+                "C) No.", 
+                "D) Depende la situación."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 293. ¿Qué delito comete el militar que trate a un inferior de un modo contrario a las PRESCRIPCIONES LEGALES?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) Insubordinación.",
+                "C) Desobediencia.", 
+                "D) Infracción de deberes militares correspondientes a cada militar según su comisión o empleo."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 294. ¿Qué delito comete el superior que diere órdenes de INTERÉS PERSONAL a un inferior?",
+                options: [
+                "A) Insubordinación.",
+                "B) Abuso de autoridad.",
+                "C) Desobediencia.", 
+                "D) Infracción de deberes militares."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 294. ¿Qué delito comete el superior que ESTORBARE sin motivo justificado la ejecución de las órdenes que éste hubiere dado en uso de sus facultades?",
+                options: [
+                "A) Insubordinación.",
+                "B) Abuso de autoridad.",
+                "C) Desobediencia.", 
+                "D) Asonada."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 294. ¿Qué delito comete el superior que le IMPIDIESE al inferior de cualquier modo el cumplimiento de sus deberes?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) Insubordinación.",
+                "C) Desobediencia.", 
+                "D) Traición a la patria."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 294. ¿Qué tipo de delito comete el superior que le EXIGIERE a un inferior, actos que no tengan relación con el servicio?",
+                options: [
+                "A) Deserción.",
+                "B) Desobediencia.",
+                "C) Insubordinación.", 
+                "D) Abuso de autoridad."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 294. ¿Qué tipo de delito comete el superior que de cualquiera manera LE HICIERE contraer obligaciones que sean en prejuicio del desempeño de sus deberes?",
+                options: [
+                "A) Desobediencia.",
+                "B) Insubordinación.",
+                "C) Abuso de autoridad.", 
+                "D) Abandono de servicio."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 295. ¿Qué delito comete el superior que impidiere a uno o varios inferiores que formulen, retiren o prosigan sus quejas o reclamaciones, amenazándolos o valiéndose de otros medios ilícitos?",
+                options: [
+                "A) Contra el honor militar.",
+                "B) Abuso de autoridad.",
+                "C) Infracción de deberes militares.", 
+                "D) Ejercicio abusivo de funciones."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 295. ¿Qué delito comete el superior que hiciere desaparecer una queja, petición, reclamación, o cualquier documento militar, o se negare a darles curso o a proveer en ellos?",
+                options: [
+                "A) Desobediencia.",
+                "B) Contra el honor militar.",
+                "C) Abuso de autoridad.", 
+                "D) Insubordinación."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 295. ¿Qué delito comete el superior que se negare a expedir a un individuo de tropa la certificación que cumplido teniendo el deber de hacerlo?",
+                options: [
+                "A) En contra de la existencia del Ejército.",
+                "B) Ejercicio abusivo de funciones.",
+                "C) Infracción de deberes militares.", 
+                "D) Abuso de autoridad."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 296. ¿Qué delito comete el que extralimite en el derecho de imponer castigos correccionales, aplicando los que no estén permitidos por la ley o haciendo sufrir los que lo estén, al que sea inocente, o excediéndose en los que la misma ley estén señalados de un modo expreso respecto de la falta que se trate?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) En contra de la existencia del Ejército.",
+                "C) Ejercicio abusivo de funciones.", 
+                "D) En contra de la autoridad militar."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 297. ¿Qué delito comete el que insulte a un inferior?",
+                options: [
+                "A) En contra de la autoridad.",
+                "B) Abuso de autoridad.",
+                "C) Delitos por servidores públicos.", 
+                "D) Infracción de deberes comunes."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 297. ¿Qué delito comete el que procure inducir a un inferior a una acción degradante o a una infracción legal?",
+                options: [
+                "A) Contra el honor militar.",
+                "B) En contra de la existencia del Ejército.",
+                "C) Ejercicio abusivo de funciones.", 
+                "D) Abuso de autoridad."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 298. ¿Qué delito comete el que infiera golpes o de cualquiera otra manera maltrate de obra a un inferior sin lesionarlo?",
+                options: [
+                "A) Lesiones.",
+                "B) Abuso de autoridad.",
+                "C) Tentativa de homicidio.", 
+                "D) En contra de la autoridad militar."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 298. ¿Qué delito comete el que mandare dar golpes a un inferior o que innecesariamente mandare cualquier otro maltratamiento de obra contra él?",
+                options: [
+                "A) Lesiones dolosas.",
+                "B) Lesiones.",
+                "C) Abuso de autoridad.", 
+                "D) En contra de la autoridad."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 299. ¿Qué delito comete el que infiera alguna lesión a un inferior?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) En contra de la jerarquía.",
+                "C) En contra de la autoridad.", 
+                "D) Lesiones dolosas."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 300. ¿Qué delito comete el que indebidamente haga que una fuerza armada le preste auxilio en una riña o pendencia, que por esa causa tome mayores proporciones?",
+                options: [
+                "A) Delitos cometidos por servidores públicos.",
+                "B) En contra del honor militar.",
+                "C) Abuso de autoridad.", 
+                "D) Ejercicio abusivo de funciones."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 301. ¿Qué delito comete el que no ejecuta o respeta una orden del superior?",
+                options: [
+                "A) Desobediencia.",
+                "B) Infracción de deberes militares.",
+                "C) Infracción de deberes comunes.", 
+                "D) Delito cometido por centinelas y vigilantes."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 301. ¿Qué delito comete el que modifica de propia autoridad una orden del superior o se extralimita al ejecutarla?",
+                options: [
+                "A) Abuso de autoridad.",
+                "B) Infracción de deberes militares.",
+                "C) Desobediencia.", 
+                "D) En contra de la autoridad."
+                ],
+                answer: 2
+            },
+            {
+                question: "La insubordinación, abuso de autoridad, desobediencia, pueden cometerse...",
+                options: [
+                "A) Dentro del servicio.",
+                "B) Dentro o fuera del servicio.",
+                "C) Fuera del servicio.", 
+                "D) Nunca."
+                ],
+                answer: 1
+            },
+            {
+                question: "Asonada. Artículo 305. Los que en grupo de ___, por lo menos, o sin llegar a ese número cuando formen la mitad o más de una fuerza aislada, rehúsen a obedecer las órdenes de un superior, las resistan o recurran a vías de hecho para impedirlas.",
+                options: [
+                "A) 2.",
+                "B) 3.",
+                "C) 4.", 
+                "D) 5."
+                ],
+                answer: 3
+            },
+            {
+                question: "Asonada. Artículo 305. Los que en grupo de ___, por lo menos, o sin llegar a ese número cuando formen la mitad o más de una fuerza aislada, rehúsen a obedecer las órdenes de un superior, las resistan o recurran a vías de hecho para impedirlas.",
+                options: [
+                "A) Cinco.",
+                "B) Siete.",
+                "C) Diez.", 
+                "D) Once."
+                ],
+                answer: 0
             }
         ],
         "Ley Orgánica del Ejército y Fuerza Aérea Mexicanos": [
             {
-                question: "¿Prueba?",
+                question: "Artículo 1/o. ¿Cómo define la Ley Orgánica al Ejército y Fuerza Aérea Mexicanos?",
                 options: [
-                "A) 1",
-                "B) 2",
-                "C) 3", 
-                "D) 4"
+                "A) Como instituciones armadas permanentes.",
+                "B) Como instituciones armadas temporales.",
+                "C) Como dependencias organizadas permanentes.", 
+                "D) Como organizaciones armadas."
                 ],
                 answer: 0
             },
             {
-                question: "¿Prueba?",
+                question: "Artículo 1/o. El Ejército y Fuerza Aérea Mexicanos, son INSTITUCIONES _______ PERMANENTES.",
                 options: [
-                "A) 1",
-                "B) 2",
-                "C) 3", 
-                "D) 4"
+                "A) Organizadas.",
+                "B) Armadas.",
+                "C) Desplegadas.", 
+                "D) Equipadas."
                 ],
                 answer: 1
             },
             {
-                question: "¿Prueba?",
+                question: "Artículo 1/o. ¿En cuál LEY se establecen las misiones generales del Ejército y Fuerza Aérea Mexicanos?",
                 options: [
-                "A) 1",
-                "B) 2",
-                "C) 3", 
-                "D) 4"
+                "A) Ley de Disciplina y Fuerza Aérea Mexicanos.",
+                "B) Ley de Ascensos y Recompensas para el Ejército y Fuerza Aérea Mexicanos.",
+                "C) Ley Orgánica del Ejército y Fuerza Aérea Mexicanos.", 
+                "D) Ley Orgánica de la Administración Pública Federal."
                 ],
                 answer: 2
+            },
+            {
+                question: "Artículo 1/o. ¿Cuántas MISIONES GENERALES le asigna la Ley Orgánica al Ejército y Fuerza Aérea Mexicanos?",
+                options: [
+                "A) 2.",
+                "B) 3.",
+                "C) 4.", 
+                "D) 5."
+                ],
+                answer: 3
+            },
+            {
+                question: "Artículo 1/o. El Ejército y Fuerza Aérea Mexicanos, son instituciones armadas PERMANENTES que tienen las misiones _______ siguientes:",
+                options: [
+                "A) Generales.",
+                "B) Particulares.",
+                "C) Específicas.", 
+                "D) Organizacionales."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 1/o. El Ejército y Fuerza Aérea Mexicanos, son instituciones armadas permanentes que tienen las misiones generales siguientes:<br>I. DEFENDER la _______, la _______ y la _______ de la nación.",
+                options: [
+                "A) Economía, seguridad, política.",
+                "B) Población, territorio y gobierno.",
+                "C) Integridad, independencia y soberanía.", 
+                "D) Seguridad, población y territorio."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 1/o. El Ejército y Fuerza Aérea Mexicanos, son instituciones ARMADAS permanentes que tienen las misiones generales siguientes:<br>II. GARANTIZAR la _______.",
+                options: [
+                "A) Seguridad interior.",
+                "B) Seguridad exterior.",
+                "C) Política interior.", 
+                "D) Política exterior."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 1/o. El Ejército y Fuerza Aérea Mexicanos, son INSTITUCIONES armadas permanentes que tienen las misiones generales siguientes:<br>III. Auxiliar a la población civil en casos de necesidades _______.",
+                options: [
+                "A) Públicas.",
+                "B) Privadas.",
+                "C) Personales.", 
+                "D) Ambientales."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 1/o. El Ejército y Fuerza Aérea Mexicanos, son instituciones armadas permanentes que tienen las misiones GENERALES siguientes:<br>IV. Realizar acciones cívicas y obras sociales que tiendan al progreso _______.",
+                options: [
+                "A) Del Ejército.",
+                "B) Del país.",
+                "C) De la sociedad.", 
+                "D) De la nación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 1/o. El Ejército y Fuerza Aérea Mexicanos, son instituciones armadas permanentes que tienen las misiones generales siguientes:<br>V. En caso de _______ prestar ayuda para el mantenimiento del ORDEN, AUXILIO de las personas y sus bienes y la RECONSTRUCCIÓN de las zonas afectadas.",
+                options: [
+                "A) Necesidades públicas.",
+                "B) Huracanes.",
+                "C) Desastre.", 
+                "D) Terremotos."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 2/o. Las misiones enunciadas, podrán realizarlas el Ejército y _______ POR SI O EN FORMA CONJUNTA con la Armada o con otras Dependencias de los Gobiernos Federal, Estatales o Municipales, todo, conforme lo ordene o lo apruebe el Presidente de la República, en ejercicio de sus facultades constitucionales.",
+                options: [
+                "A) La Fuerza Aérea.",
+                "B) La Guardia Nacional.",
+                "C) La Secretaria de Marina.", 
+                "D) Las policías."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 2/o. Las misiones enunciadas, podrán realizarlas el Ejército y Fuerza Aérea, por si o en forma conjunta con la Armada o con otras DEPENDENCIAS DE LOS GOBIERNOS Federal, Estatales o Municipales, todo, conforme lo ordene o lo apruebe el __________, en ejercicio de sus facultades constitucionales.",
+                options: [
+                "A) Secretario de la Defensa Nacional.",
+                "B) Comandante del Ejército.",
+                "C) Presidente de la República.", 
+                "D) Fuero Federal."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 2/o. Bis. El personal militar podrá efectuar operaciones de _______ a las INSTITUCIONES DE SEGURIDAD PÚBLICA en los términos que señale el marco jurídico aplicable.",
+                options: [
+                "A) Apoyo.",
+                "B) Ayuda.",
+                "C) Rescate.", 
+                "D) Vigilancia."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 3/o. El Ejército y Fuerza Aérea Mexicanos deben ser organizados, _______ y equipados conforme a los requerimientos que reclame el CUMPLIMIENTO DE SUS MISIONES.",
+                options: [
+                "A) Administrados.",
+                "B) Adiestrados.",
+                "C) Desplegados.", 
+                "D) Instruidos."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 4/o. El Ejército y Fuerza Aérea Mexicanos están _______ por:<br>I. LOS MEXICANOS por nacimiento que no adquieran otra nacionalidad y que presten sus servicios en las Instituciones Armadas de tierra y aire, sujetos a la Leyes y Reglamentos Militares;<br>II. Los RECURSOS que la Nación pone a su disposición; y<br>III. EDIFICIOS e INSTALACIONES.",
+                options: [
+                "A) Compuestos.",
+                "B) Integrados.",
+                "C) Organizados.", 
+                "D) Reunidos."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 4/o. El Ejército y Fuerza Aérea Mexicanos están INTEGRADOS por:<br>I. Los mexicanos por _______ que no adquieran otra nacionalidad y que presten sus servicios en las Instituciones Armadas de tierra y aire, sujetos a la Leyes y Reglamentos Militares;<br>II. Los recursos que la Nación pone a su disposición; y<br>III. Edificios e instalaciones.",
+                options: [
+                "A) Nacimiento.",
+                "B) Nacionalidad.",
+                "C) Ciudadanía.", 
+                "D) Integración."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 4/o. El Ejército y Fuerza Aérea Mexicanos están integrados por:<br>I. Los mexicanos por nacimiento que no adquieran otra _______ y que presten sus servicios en las Instituciones Armadas de tierra y aire, sujetos a la Leyes y Reglamentos Militares;<br>II. Los recursos que la Nación pone a su disposición; y<br>III. Edificios e instalaciones.",
+                options: [
+                "A) Ciudadanía.",
+                "B) Nacionalidad.",
+                "C) Población.", 
+                "D) Familia."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 4/o. El Ejército y Fuerza Aérea Mexicanos están integrados por:<br>I. Los mexicanos por nacimiento que no adquieran otra nacionalidad y que presten sus servicios en las Instituciones Armadas de __________, sujetos a la Leyes y Reglamentos Militares;<br>II. Los recursos que la Nación pone a su disposición; y<br>III. Edificios e instalaciones.",
+                options: [
+                "A) tierra y aire.",
+                "B) tierra.",
+                "C) tierra, aire y mar.", 
+                "D) mar."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 4/o. El Ejército y Fuerza Aérea Mexicanos están integrados por:<br>I. Los mexicanos POR NACIMIENTO que no adquieran otra NACIONALIDAD y que presten sus servicios en las INSTITUCIONES ARMADAS de tierra y aire, sujetos a la Leyes y Reglamentos Militares;<br>II. Los _______ que la Nación pone a su disposición; y<br>III. Edificios e instalaciones.",
+                options: [
+                "A) Materiales.",
+                "B) Bienes.",
+                "C) Recursos.", 
+                "D) Herramientas."
+                ],
+                answer: 2
+            },
+            {
+                question: "Artículo 4/o. El Ejército y Fuerza Aérea Mexicanos están integrados por:<br>I. Los mexicanos por nacimiento que no adquieran otra nacionalidad y que presten sus servicios en las Instituciones Armadas de tierra y aire, sujetos a la Leyes y Reglamentos Militares;<br>II. Los recursos que la Nación pone a su disposición; y<br>III. Edificios _______.",
+                options: [
+                "A) y dependencias.",
+                "B) e instalaciones.",
+                "C) y unidades.", 
+                "D) e instituciones civiles."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 5/o. Los miembros del Ejército y Fuerza Aérea Mexicanos, por norma _______ pertenecen al Servicio Militar Voluntario o Al Servicio Militar Nacional.",
+                options: [
+                "A) Constitucional.",
+                "B) Legal.",
+                "C) Dictaminada.", 
+                "D) Obligatoria."
+                ],
+                answer: 0
+            },
+            {
+                question: "Artículo 5/o. Los miembros del Ejército y Fuerza Aérea Mexicanos, POR NORMA CONSTITUCIONAL pertenecen al Servicio Militar Voluntario o al Servicio Militar _______.",
+                options: [
+                "A) Nacional.",
+                "B) No voluntario.",
+                "C) Por contrato.", 
+                "D) Obligado."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 53. ¿Cuáles son las acciones que el Ejército y Fuerza Aérea Mexicanos desarrollan en forma conjunta y se mantienen unidas en una sola Dependencia?",
+                options: [
+                "A) Defensa Nacional.",
+                "B) Protección Civil.",
+                "C) Seguridad Social.", 
+                "D) Reconstrucción y Reaprovechamiento de Instalaciones."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 53. ¿Quiénes desarrollan sus acciones de Defensa Nacional en forma conjunta y se mantienen unidas en una sola Dependencia?",
+                options: [
+                "A) El Ejército y Armada de México.",
+                "B) El Ejército y Fuerza Aérea Mexicanos.",
+                "C) La Guardia Nacional y Fuerza Aérea Mexicanos.", 
+                "D) El Ejército y Poder Legislativo."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 53. ¿Cuál es la organización del Ejército y Fuerza Aérea Mexicanos cuando desarrollan sus acciones de Defensa Nacional en forma conjunta?",
+                options: [
+                "A) En un Órgano Central.",
+                "B) En una sola Dependencia.",
+                "C) En un Sistema Técnico.", 
+                "D) En una Instalación."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 54. ¿Cuál es la entidad que se compone de Unidades organizadas y adiestradas para las operaciones militares terrestres y está constituido por; Comandancia del Ejército, Estado Mayor del Ejército, Unidades de Armas, y Unidades de Servicios?",
+                options: [
+                "A) La Guardia Nacional.",
+                "B) El Ejército Mexicano.",
+                "C) La Armada de México.", 
+                "D) La Policía Federal."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 54. ¿En quién recae el Mando de un Ejército?",
+                options: [
+                "A) General de Brigada del Ejército.",
+                "B) General de División del Ejército.",
+                "C) General Brigadier del Ejército.", 
+                "D) Coronel del Ejército."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 54. ¿Cómo se denominará al General de División del Ejército en quien recae el mando del Ejército?",
+                options: [
+                "A) Director del Ejército.",
+                "B) Mayor del Ejército.",
+                "C) Jefe del Ejército.", 
+                "D) Comandante del Ejército."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 54. ¿En el Ejército, quien será responsable de la operación y administración del mismo, así como del empleo de sus Unidades, de conformidad con las directivas, instrucciones, órdenes y demás disposiciones del Alto Mando?",
+                options: [
+                "A) Director del Ejército.",
+                "B) Comandante del Ejército.",
+                "C) Jefe del Ejército.", 
+                "D) Mayor del Ejército."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 54. ¿Cuál es el órgano técnico operativo, colaborador inmediato del Comandante del Ejército, a quien auxilia en la planeación y coordinación de los asuntos de su competencia y de las misiones que le sean conferidas y transforma las decisiones en órdenes, directivas e instrucciones, verificando su cumplimiento?",
+                options: [
+                "A) Comandancia al Ejército.",
+                "B) Direcciones Generales.",
+                "C) El Estado Mayor del Ejército.", 
+                "D) Subsecretaria."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 54. ¿Cuál es el órgano técnico operativo que estará formado por personal del Estado Mayor perteneciente al Ejército, así como de aquel otro personal que le sea necesario?",
+                options: [
+                "A) Las Direcciones Generales de Arma.",
+                "B) La Comandancia del Ejército.",
+                "C) El Estado Mayor del Ejército.", 
+                "D) Las Direcciones Generales de Servicio."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 55 ¿Cuáles son los componentes del Ejército y Fuerza Aérea Mexicanos cuya misión principal es el combate, el que será ejecutado por cada una de ellas en función de cómo combinen el armamento, la forma preponderante de desplazarse, su poder de choque y forma de trabajo?",
+                options: [
+                "A) Las Armas.",
+                "B) Los Servicios.",
+                "C) Las Direcciones.", 
+                "D) Los Órganos."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 56. ¿Cuál es un Arma del Ejército Mexicano?",
+                options: [
+                "A) Infantería.",
+                "B) Materiales de Guerra.",
+                "C) Transmisiones.", 
+                "D) Transportes."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 56. ¿Cuál es un Arma del Ejército Mexicano?",
+                options: [
+                "A) Caballería.",
+                "B) Materiales de Guerra.",
+                "C) Transmisiones.", 
+                "D) Transportes."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 56. ¿Cuál es un Arma del Ejército Mexicano?",
+                options: [
+                "A) Transmisiones.",
+                "B) Materiales de Guerra.",
+                "C) Artillería.", 
+                "D) Transportes."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 56. ¿Cuál es un Arma del Ejército Mexicano?",
+                options: [
+                "A) Blindada.",
+                "B) Materiales de Guerra.",
+                "C) Transportes.", 
+                "D) Transmisiones."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 57. ¿Cómo se organizará las Armas del Ejército?",
+                options: [
+                "A) Direcciones.",
+                "B) Órganos.",
+                "C) Unidades.", 
+                "D) Sectores."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 57. ¿Cómo se clasifican las unidades de las Armas del Ejército?",
+                options: [
+                "A) Órganos y Direcciones.",
+                "B) Pequeñas y grandes unidades.",
+                "C) Medianas y grandes unidades.", 
+                "D) Órganos e instalaciones."
+                ],
+                answer: 1
+            },
+            {
+                question: "Artículo 57. ¿Cuáles son las unidades que se constituyen con mando y órganos de mando, elementos o unidades de una sola Arma y de los Servicios que le sean necesarios según proceda?",
+                options: [
+                "A) Las pequeñas unidades.",
+                "B) Las grandes unidades.",
+                "C) Las medianas unidades.", 
+                "D) Las micro unidades."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 57. ¿Qué tipo de unidad es considerada las Escuadras?",
+                options: [
+                "A) Las pequeñas unidades.",
+                "B) Las grandes unidades.",
+                "C) Las medianas unidades.", 
+                "D) Las micro unidades."
+                ],
+                answer: 0
+            },
+            {
+                question: "Art. 57. ¿Qué tipo de unidad es un pelotón?",
+                options: [
+                "A) Grandes unidades.",
+                "B) Pequeñas unidades.",
+                "C) Medianas unidades.", 
+                "D) Micro unidades"
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 57. ¿Qué tipo de unidad son las secciones?",
+                options: [
+                "A) Medianas unidades.",
+                "B) Grandes unidades.",
+                "C) Micro unidades.", 
+                "D) Pequeñas unidades."
+                ],
+                answer: 3
+            },
+            {
+                question: "Art. 57. ¿Qué tipo de unidad son las Compañías?",
+                options: [
+                "A) Medianas unidades.",
+                "B) Pequeñas unidades.",
+                "C) Grandes unidades.", 
+                "D) Micro unidades."
+                ],
+                answer: 1
+            },
+            {
+                question: "Art. 57. ¿Qué tipo de unidad son los Escuadrones?",
+                options: [
+                "A) Medianas unidades.",
+                "B) Micro unidades.",
+                "C) Pequeñas unidades.", 
+                "D) Grandes unidades."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 57. ¿Cuáles son las unidades que se constituyen con mando y órganos de mando, unidades de dos o más armas y de los servicios que se requieran?",
+                options: [
+                "A) Las medianas unidades.",
+                "B) Las pequeñas unidades.",
+                "C) Las grandes unidades.", 
+                "D) Las micro unidades."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 57. ¿Cuál es una gran unidad?",
+                options: [
+                "A) Escuadrones.",
+                "B) Batallones.",
+                "C) Brigadas.", 
+                "D) Secciones."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 57. ¿Cuál es una gran unidad?",
+                options: [
+                "A) Escuadrones.",
+                "B) Secciones.",
+                "C) Divisiones.", 
+                "D) Batallones."
+                ],
+                answer: 2
+            },
+            {
+                question: "Art. 57. ¿Cuál es una gran unidad?",
+                options: [
+                "A) Cuerpos de Ejército.",
+                "B) Escuadrones. ",
+                "C) Secciones.", 
+                "D) Batallones."
+                ],
+                answer: 0
             }
         ],
         "Manual de Derechos Humanos para el Ejército y Fuerza Aérea Mexicanos": [
@@ -2778,7 +4493,7 @@
             };
             subjectDiv.appendChild(toggleButton);
             const questionDiv = document.createElement("div");
-            questionDiv.style.display = "none";
+            questionDiv.style.display = "block";
             qs.forEach((q, index) => {
                 const questionElement = document.createElement("div");
                 questionElement.classList.add("question");
@@ -2869,6 +4584,6 @@
     window.onload = loadQuestions;
 </script>
 <button onclick="javascript:window.location.reload();">Reinicar Exámen</button>
-<p class="creditos">EL ONOFRE SE LA RIFO XD</p>
+<footer><p class="creditos">EL ONOFRE SE LA RIFO XD</p></footer>
 </body>
 </html>
